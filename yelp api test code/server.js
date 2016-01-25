@@ -8,8 +8,10 @@ var request = require('request');
 var qs = require('querystring');
 var _ = require('lodash');
 //////////
+var data;
 var proxyYelp = function(request, response) {
   request_yelp(request.query, response);
+  response.send(data)
 }
 var request_yelp = function(set_parameters, callback) {
   var httpMethod = 'GET';
@@ -32,7 +34,7 @@ var request_yelp = function(set_parameters, callback) {
   var paramURL = qs.stringify(parameters);
   var apiURL = url+'?'+paramURL;
   request(apiURL, function(error, response, body){
-    console.log(body);
+    data = body;
   });
 
 };

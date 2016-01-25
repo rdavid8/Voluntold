@@ -1,7 +1,7 @@
 $.ajax('yelp/v2/search/', {
   data: {
-    term: 'tacos',
-    location: 'Everett'
+    term: 'Bakery',
+    location: 'Federal Way'
   },
   success: function(data) {
     console.log(data);
