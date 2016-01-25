@@ -1,17 +1,19 @@
 var requestProxy = require('express-request-proxy'),
   express = require('express'),
+  oauthSignature = require('oauth-signature'),
+  n = require('nonce')(),
+  request = require('request'),
+  qs = require('querystring'),
+  _ = require('lodash'),
   port = process.env.PORT || 3000,
-  app = express();
-var oauthSignature = require('oauth-signature');
-var n = require('nonce')();
-var request = require('request');
-var qs = require('querystring');
-var _ = require('lodash');
-//////////
-var data;
+  app = express(),
+  data;
+
 var proxyYelp = function(request, response) {
+  console.log('Incoming request');
   var respond = function() {
     response.send(data)
+    console.log('Request Served');
   }
   request_yelp(request.query, respond);
 }

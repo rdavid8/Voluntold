@@ -1,7 +1,8 @@
 $.ajax('yelp/v2/search/', {
   data: {
-    term: 'ice cream',
+    term: 'animal shelter',
     location: '98023',
+    category_filter: 'nonprofit',
     limit: 10
   },
   success: function(data) {
