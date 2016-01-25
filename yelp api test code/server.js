@@ -7,26 +7,14 @@ var n = require('nonce')();
 var request = require('request');
 var qs = require('querystring');
 var _ = require('lodash');
-
-var proxyGitHub = function(request, response) {
-  console.log('Routing GitHub request for', request.params[0]);
-  (requestProxy({
-    url: 'https://api.github.com/' + request.params[0],
-    headers: { Authorization: 'token ' + process.env.GITHUB_TOKEN }
-  }))(request, response);
-};
 //////////
 var proxyYelp = function(request, response) {
-  console.log('Routing Yelp request for', request.url);
-  var qs_params = request.url.replace('/yelp/v2/search/?', '')
-  request_yelp(qs_params, response);
+  request_yelp(request.query, response);
 }
 var request_yelp = function(set_parameters, callback) {
   var httpMethod = 'GET';
   var url = 'http://api.yelp.com/v2/search'
   var default_parameters = {
-    location: 'San+Francisco',
-    sort: '2'
   };
   var required_parameters = {
     oauth_consumer_key : process.env.oauth_consumer_key,
@@ -45,23 +33,15 @@ var request_yelp = function(set_parameters, callback) {
   var apiURL = url+'?'+paramURL;
   request(apiURL, function(error, response, body){
     console.log(body);
-    return (error, response, body);
   });
 
 };
-// request_yelp('term=tacos&location=seattle', function(err, res, body) {
-//   console.log(res);
-// })
-//////////
 app.get('/yelp/*', proxyYelp);
-
 app.use(express.static('./'));
-
 app.get('*', function(request, response) {
   console.log('New request:', request.url);
   response.sendFile('index.html', { root: '.' });
 });
-
 app.listen(port, function() {
   console.log('Server started on port ' + port + '!');
 });
