@@ -21,10 +21,10 @@
         limit: 10
       },
       success: function(data) {
+        manageDB.deleteTable(function(){});
         var bus = JSON.parse(data).businesses;
-        console.log(bus)
         $.each(bus, function(i){
-          console.log(bus[i].location.city + ' - ' + bus[i].name +': '+ bus[i].phone)
+          manageDB.populateDB(bus[i])
         });
       },
       error: function() {
