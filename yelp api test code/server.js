@@ -10,8 +10,10 @@ var _ = require('lodash');
 //////////
 var data;
 var proxyYelp = function(request, response) {
-  request_yelp(request.query, response);
-  response.send(data)
+  var respond = function() {
+    response.send(data)
+  }
+  request_yelp(request.query, respond);
 }
 var request_yelp = function(set_parameters, callback) {
   var httpMethod = 'GET';
@@ -35,6 +37,7 @@ var request_yelp = function(set_parameters, callback) {
   var apiURL = url+'?'+paramURL;
   request(apiURL, function(error, response, body){
     data = body;
+    callback();
   });
 
 };
