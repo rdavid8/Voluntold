@@ -3,6 +3,7 @@
   manageDB = {};
 
 
+
   function Location (arr) {
     this.name = arr[0],
     this.display_phone = arr[1],
@@ -69,7 +70,25 @@ manageDB.populateDB = function(bus){
   var thisLoc = new Location(arr);
   thisLoc.insertSelf();
 };
+
+Location.grabLocs = function(rows){
+  Location.all = rows;
+}
+
+Location.loadAll = function() {
+  webDB.execute('SELECT * FROM yelpresults', function(rows){
+      if(rows.length){
+        console.log("hello!");
+        Location.grabLocs(rows);
+      }
+  })
+}
+
+Location.all = [];
+
+  module.Location = Location;
   module.manageDB = manageDB;
 })(window);
 
 manageDB.createTable();
+Location.loadAll();
