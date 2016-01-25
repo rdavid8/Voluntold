@@ -20,13 +20,18 @@
     webDB.execute(
       [
         {
-          'sql': 'INSERT INTO articles (name, display_phone, address, city, postal_code, state_code, latitude, longitude, image_url, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
+          'sql': 'INSERT INTO yelpresults (name, display_phone, address, city, postal_code, state_code, latitude, longitude, image_url, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
           'data': [this.name, this.display_phone, this.address, this.city, this.postal_code, this.state_code, this.latitude, this.longitude, this.image_url, this.url],
         }
       ]
     );
   };
-
+  manageDB.deleteTable = function(callback) {
+    webDB.execute(
+      'DELETE FROM yelpresults;',
+      callback
+    );
+  };
   manageDB.createTable = function(callback) {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS yelpresults (' +
@@ -44,9 +49,26 @@
         callback
     );
   };
-
-manageDB.populateDB = function(
-
+manageDB.latRep = function(x){
+  if (x) {
+    return x.latitude;
+  } else {
+    return undefined;
+  }
+}
+manageDB.longRep = function(x){
+  if (x) {
+    return x.longitude;
+  } else {
+    return undefined;
+  }
+}
+manageDB.populateDB = function(bus){
+  var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url]
+  console.log(arr);
+  var thisLoc = new Location(arr);
+  thisLoc.insertSelf();
+};
   module.manageDB = manageDB;
 })(window);
 
