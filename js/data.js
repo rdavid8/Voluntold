@@ -2,9 +2,9 @@
 
   manageDB = {};
 
-  manageDB.createTable = function(callback) {
+  manageDB.createTable = function() {
     webDB.execute(
-      'CREATE TABLE IF NOT EXISTS latest-results (' +
+      'CREATE TABLE IF NOT EXISTS yelpresults (' +
         'id INTEGER PRIMARY KEY, ' +
         'name VARCHAR(255) NOT NULL, ' +
         'display_phone VARCHAR(255) NOT NULL, ' +
@@ -15,15 +15,13 @@
         'latitude FLOAT(255), ' +
         'longitude FLOAT(255), ' +
         'image_url VARCHAR(255), ' +
-        'url VARCHAR(255);',
-      callback
+        'url VARCHAR(255));'
     );
   };
 
 
 
-
-
-
   module.manageDB = manageDB;
 })(window);
+
+manageDB.createTable();
