@@ -1,0 +1,21 @@
+{
+  "name": "voluntold",
+  "version": "1.0.0",
+  "description": "An app to find places to volunteer",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-request-proxy": "^1.1.0",
+    "lodash": "^4.0.0",
+    "nonce": "^1.0.3",
+    "oauth-signature": "^1.3.1",
+    "querystring": "^0.2.0",
+    "request": "^2.67.0"
+  }
+}
