@@ -6,12 +6,11 @@ var requestProxy = require('express-request-proxy'),
   qs = require('querystring'),
   _ = require('lodash'),
   port = process.env.PORT || 3000,
-  app = express(),
-  data;
+  app = express();
 
 var proxyYelp = function(request, response) {
   console.log('Incoming request');
-  var respond = function() {
+  var respond = function(data) {
     response.send(data)
     console.log('Request Served');
   }
@@ -38,8 +37,7 @@ var request_yelp = function(set_parameters, callback) {
   var paramURL = qs.stringify(parameters);
   var apiURL = url+'?'+paramURL;
   request(apiURL, function(error, response, body){
-    data = body;
-    callback();
+    callback(body);
   });
 
 };
