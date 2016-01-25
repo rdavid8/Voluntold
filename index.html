@@ -21,8 +21,28 @@
         <h1>We are Voluntold</h1>
         <h3>We are here to help you to give back to your community!</h3>
         Where would you want to volunteer this weekend?
-
       </div>
+
+      <form action="action_page.php">
+        <fieldset>
+          term: <br>
+          <input type="text" name="term" value="Mickey"><br>
+          location: <br>
+          <input type="text" name="location" value="Mouse"><br><br>
+          category: <br>
+          <input type="text" name="category" value="Mouse"><br><br>
+
+          <input type="submit" value="Submit">
+        </fieldset>
+</form>
+
+
+
+
+
+
+
+
       <div id="map"></div>
       <script type="text/javascript">
         var map;
@@ -173,6 +193,9 @@
       </script>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="vendors/html5sql.js"></script>
+    <script src="vendors/webdb.js"></script>
+    <script src="vendors/page.js"></script>
     <script src="test.js"></script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8XmSCOn83UDkb8RI9xhf0PYHNexEwrJQ&callback=initMap">
