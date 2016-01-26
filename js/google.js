@@ -161,8 +161,7 @@ var createMarkers = function(obj) {
       if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
       } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout(function(){marker.setAnimation(null); }, 1480);
+        // setTimeout(function(){marker.setAnimation(null); }, 1480);
       }
     }
     var infowindow = new google.maps.InfoWindow({// add this in
@@ -170,9 +169,14 @@ var createMarkers = function(obj) {
     });
     marker.addListener('mouseover', function() {
       infowindow.open(map, this);
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+
+
     });
     marker.addListener('mouseout', function() {
       infowindow.close();
+      marker.setAnimation(null);
+
     });
 
     // marker.addListener(':hover', function() {
