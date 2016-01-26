@@ -3,6 +3,8 @@
   var questionsController = {};
 
   questionsController.index = function(){
+    $('#map').hide();
+    $('#landing').hide();
     $('#q1').show().siblings().hide();
     $('#submit1').on('click', function(e){
       e.preventDefault();
@@ -17,6 +19,10 @@
       questionsController.location = $("#location").val();
       console.log(questionsController.location);
       yelp.ajaxCall(Location.loadAll);
+      $('#map').show();
+
+      // eventually will route to result page after 2nd submit button
+
     });
   };
 

@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <header>
-    <link href='https://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="test.css">
-
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet" type="text/css">
   </header>
   <head>
     <meta charset="UTF-8">
     <title>development testing site</title>
-    <style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
-    </style>
   </head>
   <body>
-      <div id='f1'>
-        <h1>We are Voluntold</h1>
+
+
+    <div id ="landing">
+      <div id="f1">
+        <h1>Welcome to Voluntold</h1>
       </div>
-      <form id ='form'>
+      <div id="f2">
+        <h1>Let Us Help You To Give Back to Your Community!</h1>
+      </div>
+    </div>
+
+      <form id ="form">
         <fieldset>
-          <section id = 'quetions'>
-            <section id = 'q1'>
+          <section id = "quetions">
+            <section id = "q1">
               term: <br>
               <select id="term">
                 <option value="animal shelter">animal shelter</option>
@@ -28,12 +33,12 @@
                 <option value="homeless shelter">homeless shelter</option>
                 <option value="charity">charity</option>
               </select>
-              <input id ='submit1' type="submit" value="Submit">
+              <input id ="submit1" type="submit" value="Submit">
             </section>
-            <section id = 'q2'>
+            <section id = "q2">
               location: <br>
-              <input id='location' type="text" name="location" value="bellevue"><br>
-              <input id ='submit2' type="submit" value="Submit">
+              <input id="location" type="text" name="location" value="new york"><br>
+              <input id ="submit2" type="submit" value="Submit">
             </section>
           </section>
         </fieldset>
@@ -47,7 +52,7 @@
     <script src="js/data.js"></script>
     <script src="js/view.js"></script>
     <script src="js/google.js"></script>
-    <script src="js/questions.js"></script>
+    <script src="js/landingPageController.js"></script>
     <script src="js/questionsController.js"></script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8XmSCOn83UDkb8RI9xhf0PYHNexEwrJQ&callback=initMap">
