@@ -82,6 +82,12 @@ Location.loadAll = function() {
         initMap(center);
         $.map(Location.all, function(obj){
           createMarkers(obj); // Create map marker per each in the array.
+
+
+          //handlebar!!!
+
+
+
           console.log(obj);
         })
       }

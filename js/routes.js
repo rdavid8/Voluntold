@@ -1,6 +1,5 @@
-//page('/', indexController.index);
 
-page.base('');
+page('/', landingPageController.index);
 
 page('/questions', questionsController.index);
 
