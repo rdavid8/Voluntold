@@ -80,6 +80,12 @@ Location.loadAll = function() {
       if(rows.length){
         console.log("hello!");
         Location.grabLocs(rows);
+        var center = {lat: Location.all[0].latitude, lng: Location.all[0].longitude};
+        initMap(center);
+        $.map(Location.all, function(i){
+          createMarkers(i);
+          console.log(i);
+        })
       }
   })
 }
