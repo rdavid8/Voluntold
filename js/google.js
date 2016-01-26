@@ -147,11 +147,24 @@
   }
 
 var createMarkers = function(obj) {
+    var markerImg = 'img/marker.png';
     var marker = new google.maps.Marker({
       position: {lat: obj.latitude, lng: obj.longitude},
       map: map,
-      title: obj.name
+      title: obj.name,
+      icon: markerImg,
+      animation: google.maps.Animation.DROP,
     });
+    marker.addListener('click', toggleBounce);
+
+    function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function(){marker.setAnimation(null); }, 1480);
+      }
+    }
     var infowindow = new google.maps.InfoWindow({// add this in
       content: obj.name + '<br>' + '<img src=' + obj.image_url + '>'
     });
