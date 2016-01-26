@@ -10,10 +10,10 @@
       window.location.href = '/questions';
     })
 
-    $('#f1').addClass('animated slideInRight');
-    $('#f2').addClass('animated slideInLeft');
+    $('#f1').addClass('animated fadeInUp');
+    $('#f2').addClass('animated fadeInDownBig');
     $('#bg').addClass('animated fadeIn');
-
+    $('#shade').addClass('animated fadeIn');
   };
 
     module.landingPageController = landingPageController;
