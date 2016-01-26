@@ -15,8 +15,8 @@
   margin: 0 auto;
 }
 /* Sidebar Section */
-
 article h1{
+  font-size: 1.2em;
   color: rgb(192,192,192);
   text-align: center;
   text-shadow: 2px 2px black;
@@ -28,13 +28,12 @@ article a img{
   -moz-box-shadow: 1px 1px 1px 1px black;
   -webkit-box-shadow: 1px 1px 1px 1px black;
   box-shadow: 1px 1px 1px 1px black;
-  margin-bottom: 10%;
-
+  margin-bottom: 5%;
 }
 
 article address{
   color: rgb(228,78,156);
-  font-size: 1.2em;
+  font-size: .8em;
   font-weight: bold;
   text-align: center;
   text-shadow: 2px 2px black;
@@ -45,5 +44,4 @@ article text{
   font-weight: bold;
   text-align: center;
   text-shadow: 2px 2px black;
-
 }

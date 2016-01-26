@@ -118,4 +118,5 @@ html, body {
   z-index: 99;
   animation-duration: 3s;
   display: none;
+  overflow: auto;
 }
