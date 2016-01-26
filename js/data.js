@@ -65,26 +65,24 @@ manageDB.longRep = function(x){
   }
 }
 manageDB.populateDB = function(bus){
-  var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url]
-  console.log(arr);
+  var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url];
   var thisLoc = new Location(arr);
-  thisLoc.insertSelf();
+  thisLoc.insertSelf(); //Insert self into SQL
 };
 
 Location.grabLocs = function(rows){
-  Location.all = rows;
+  Location.all = rows; //Load up the rows
 }
 
 Location.loadAll = function() {
-  webDB.execute('SELECT * FROM yelpresults', function(rows){
-      if(rows.length){
-        console.log("hello!");
+  webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
+      if(rows.length){ //If there are rows in the DB do the following:
         Location.grabLocs(rows);
-        var center = {lat: Location.all[0].latitude, lng: Location.all[0].longitude};
+        var center = {lat: Location.all[0].latitude, lng: Location.all[0].longitude}; //This will be passed to map.
         initMap(center);
-        $.map(Location.all, function(i){
-          createMarkers(i);
-          console.log(i);
+        $.map(Location.all, function(obj){
+          createMarkers(obj); // Create map marker per each in the array.
+          console.log(obj);
         })
       }
   })
@@ -97,4 +95,3 @@ Location.all = [];
 })(window);
 
 manageDB.createTable();
-Location.loadAll();

@@ -12,7 +12,7 @@
   //   });
   // };
 // ajax call method using saved variables
-  yelp.ajaxCall = function (){
+  yelp.ajaxCall = function (callback) {
     $.ajax('yelp/v2/search/', {
       data: {
         term: questionsController.term,
@@ -22,16 +22,16 @@
         // radius_filter = 15,
       },
       success: function(data) {
-        manageDB.deleteTable(function(){});
-        var bus = JSON.parse(data).businesses;
+        manageDB.deleteTable(function(){}); // Delete any previous data in database so we can fill it up again.
+        var bus = JSON.parse(data).businesses; //variable bus now houses business objects.
         $.each(bus, function(i){
-          manageDB.populateDB(bus[i])
+          manageDB.populateDB(bus[i]) // Populate DB with each business obj
         });
       },
       error: function() {
         console.log('There was an error');
       }
-    });
+    }).done(callback)
   };
 // when user clicks submit, run yelp.ajax as a callback function
 // yelp.userInput(yelp.ajaxCall);
