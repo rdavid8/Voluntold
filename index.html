@@ -17,12 +17,14 @@
           <h1>{{name}}</h1>
             <a href="{{url}}"><img src="{{image_url}}"/></a>
             <address>
-              {{address}} <br>
-              {{city}} <br>
-              {{postal_code}} <br>
-              {{state_code}} <br>
+              <div id="sidebar-address">
+                {{address}} <br>
+                {{city}} <br>
+                {{postal_code}} <br>
+                {{state_code}} <br>
+                {{display_phone}}
+              </div>
             </address>
-              {{display_phone}}
             <hr>
       </article>
     </script>
@@ -43,9 +45,12 @@
         </div>
         <div id="shade"></div>
         <img id="bg" src="img/bg1.png">
+        <img id="bg2" src="img/bg2.png">
+        <img id="bg3" src="img/bg3.png">
+
       </section>
 
-      <section id="quetions">
+      <section id="questions">
         <form id="form">
           <section id="q1">
             <select class="cs-select cs-skin-border" id="term">
@@ -58,7 +63,7 @@
           </section>
           <section id = "q2">
             <span class="input input--kyo">
-    					<input class="input__field input__field--kyo" type="text" name="location" value="new york" id="location">
+    					<input class="input__field input__field--kyo" type="text" name="location" value="Chicago" id="location">
     					<label class="input__label input__label--kyo">
     						<span class="input__label-content input__label-content--kyo">Please select your area</span>
     					</label>
