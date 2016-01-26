@@ -2,9 +2,27 @@
 <html lang="en">
   <header>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/modules.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/cs-skin-border.css" />
+    <link rel="stylesheet" type="text/css" href="css/q2.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/modules.css">
     <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet" type="text/css">
+    <script id="result-template" type="text/x-handlebars-template">
+      <article>
+          <h1>{{name}}</h1>
+            <a href="{{url}}"><img src="{{imge_url}}"/></a>
+            <address>
+              {{address}} <br>
+              {{city}} <br>
+              {{postal_code}} <br>
+              {{state_code}} <br>
+            </address>
+              {{display_phone}}
+            <hr>
+      </article>
+    </script>
   </header>
   <head>
     <meta charset="UTF-8">
@@ -13,41 +31,53 @@
   <body>
 
 
-    <div id ="landing">
-      <div id="f1">
-        <h1>Welcome to Voluntold</h1>
-      </div>
-      <div id="f2">
-        <h1>Let Us Help You To Give Back to Your Community!</h1>
-      </div>
-    </div>
+      <section id="landing">
+        <div id="f1">
+          <h1>Welcome to Voluntold</h1>
+        </div>
+        <div id="f2">
+          <h1>Let Us Help You To Give Back to Your Community!</h1>
+        </div>
+        <img src='img/bg1.png'>
+      </section>
 
-      <form id ="form">
-        <fieldset>
-          <section id = "quetions">
-            <section id = "q1">
-              term: <br>
-              <select id="term">
-                <option value="animal shelter">animal shelter</option>
-                <option value="food bank">food bank</option>
-                <option value="homeless shelter">homeless shelter</option>
-                <option value="charity">charity</option>
-              </select>
-              <input id ="submit1" type="submit" value="Submit">
-            </section>
-            <section id = "q2">
-              location: <br>
-              <input id="location" type="text" name="location" value="new york"><br>
-              <input id ="submit2" type="submit" value="Submit">
-            </section>
+      <section id="quetions">
+        <form id="form">
+          <section id="q1">
+            <select class="cs-select cs-skin-border" id="term">
+              <option selected="selected">select</option>
+              <option value="animal shelter">animal shelter</option>
+              <option value="food bank">food bank</option>
+              <option value="homeless shelter">homeless shelter</option>
+              <option value="charity">charity</option>
+            </select>
           </section>
-        </fieldset>
-      </form>
+          <section id = "q2">
+            <span class="input input--kyo">
+    					<input class="input__field input__field--kyo" type="text" name="location" value="new york" id="location">
+    					<label class="input__label input__label--kyo">
+    						<span class="input__label-content input__label-content--kyo">Please select your area</span>
+    					</label>
+              <input id ="submit2" type="submit" value="Submit">
+    				</span>
+          </section>
+        </form>
+      </section>
+      <div id="sidebar"></div>
       <div id="map"></div>
+
+
+
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="vendors/html5sql.js"></script>
     <script src="vendors/webdb.js"></script>
     <script src="vendors/page.js"></script>
+    <script src="vendors/handlebars.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/cssStuff.js"></script>
+
     <script src="js/yelp.js"></script>
     <script src="js/data.js"></script>
     <script src="js/view.js"></script>
