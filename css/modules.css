@@ -10,7 +10,7 @@ html, body {
 
 /*LANDING PAGE*/
 
-#landing>img{
+#bg{
   z-index: -1;
   min-height: 100%;
   min-width: 1024px;
@@ -19,18 +19,19 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
+  opacity: .7;
 }
 
 
 #f1{
-  font-family: 'Just Another Hand', cursive;
+  font-family: 'Pragati Narrow', sans-serif;
   font-size: 40px;
   color: #2ecc71;
   text-align: center;
 }
 
 #f2{
-  font-family: 'Just Another Hand', cursive;
+  font-family: 'Pragati Narrow', sans-serif;
   font-size: 35px;
   color: #2ecc71;
   text-align: center;
@@ -38,16 +39,6 @@ html, body {
 
 /*QUESTIONS*/
 
-#questions>img{
-  z-index: -1;
-  min-height: 100%;
-  min-width: 1024px;
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
 
 #sidebar{
   background-color: #fc74fc;
