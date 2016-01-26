@@ -73,7 +73,19 @@ manageDB.populateDB = function(bus){
 Location.grabLocs = function(rows){
   Location.all = rows; //Load up the rows
 }
+Location.html = function(obj) {
+  var template = Handlebars.compile($('#result-template').text());
+  console.log()
+  // this.display_phone =
+  // this.address =
+  // this.city =
+  // this.postal_code =
+  // this.state_code =
+  // this.image_url =
+  // this.url =
+  return template(obj);
 
+};
 Location.loadAll = function() {
   webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
       if(rows.length){ //If there are rows in the DB do the following:
@@ -83,12 +95,8 @@ Location.loadAll = function() {
         $.map(Location.all, function(obj){
           createMarkers(obj); // Create map marker per each in the array.
 
+          $('#sidebar').append(Location.html(obj));
 
-          //handlebar!!!
-
-
-
-          console.log(obj);
         })
       }
   })
