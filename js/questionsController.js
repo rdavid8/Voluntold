@@ -5,19 +5,23 @@
   questionsController.index = function(){
     // $('#sidebar').hide();
     // $('#map').hide();
-    $('#shade').addClass('animated fadeOut');
+    $('#shade').addClass('blue');;
     $('#f1').addClass('animated fadeOutRightBig');
     $('#f2').addClass('animated fadeOutLeftBig');
     $('#bg').addClass('animated fadeOut');
-    $('#q1').show().siblings().hide();
+    $('#bg2').addClass('animated fadeIn').show();
+    $('#q1').addClass('animated fadeInDown').show().siblings().hide();
     $('#form').show();
 
 
     $('form').on('click', 'li.cs-selected span', function(){
         questionsController.term = $("#term").val();
         console.log(questionsController.term);
+        $('#shade').addClass('purp');
         $('#q1').addClass('animated fadeOutUp');
-        $('#q2').addClass('animated fadeInDown').show();
+        $('#q2').addClass('animated fadeInUp').show();
+        $('#bg2').addClass('animated fadeOut');
+        $('#bg3').addClass('animated fadeIn').show();
         $('#submit2').hide();
     });
 

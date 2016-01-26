@@ -12,7 +12,7 @@ html, body {
 
 /*LANDING PAGE*/
 
-#bg{
+#bg, #bg2, #bg3{
   z-index: -1;
   min-height: 100%;
   min-width: 1024px;
@@ -22,6 +22,9 @@ html, body {
   top: 0;
   left: 0;
   animation-duration: 4s;
+}
+#bg2, #bg3{
+  display: none;
 }
 
 #shade{
@@ -35,6 +38,15 @@ html, body {
   left: 0;
   background-color: rgba(22,22,22,0.9);
   animation-duration: 6s;
+  transition-property: background-color;
+  transition-duration: 3s;
+  transition-timing-function: linear;
+}
+#shade.blue{
+  background-color: rgba(21,77,97,0.5);
+}
+#shade.purp{
+  background-color: rgba(87,1,111,0.5);
 }
 
 #landing{
@@ -74,6 +86,7 @@ html, body {
 /*QUESTIONS*/
 
 #q1{
+  color: white;
   position: fixed;
   width: 80%;
   margin-top: 150px;
@@ -85,10 +98,9 @@ html, body {
 }
 
 #q2{
-  position: fixed;
   width: 80%;
-  margin-top: 150px;
-  margin-left: 10%;
+  margin-top: 250px;
+  margin-left: 15%;
   text-align: center;
   z-index: 1;
   position: fixed;
