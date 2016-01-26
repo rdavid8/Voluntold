@@ -157,6 +157,12 @@ var createMarkers = function(obj) {
     });
     marker.addListener('click', toggleBounce);
 
+var contentString = '<div id="content">' +
+      '<h1 id="markerName" class="firstHeading">' + obj.name + '</h1>' +
+      '<div id="imgArea">'+ '<img src=' + obj.image_url + '>' + '</div>'+
+      '</div>';
+
+
     function toggleBounce() {
       if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
@@ -165,7 +171,7 @@ var createMarkers = function(obj) {
       }
     }
     var infowindow = new google.maps.InfoWindow({// add this in
-      content: obj.name + '<br>' + '<img src=' + obj.image_url + '>'
+      content: contentString
     });
     marker.addListener('mouseover', function() {
       infowindow.open(map, this);

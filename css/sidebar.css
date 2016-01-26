@@ -1,0 +1,16 @@
+/* Google Maps Marker Style */
+
+#content {
+  width: 100%;
+  margin: auto;
+  background-color:rgba(192,192,192,0.3);
+}
+
+#markerName {
+  text-align: center;
+}
+
+#imgArea img{
+  display: block;
+  margin: 0 auto;
+}
