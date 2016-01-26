@@ -142,7 +142,7 @@
     map = new google.maps.Map(document.getElementById('map'), {
       center: center,
       styles: styleArray,
-      zoom: 10
+      zoom: 12
     });
   }
 
@@ -152,4 +152,17 @@ var createMarkers = function(obj) {
       map: map,
       title: obj.name
     });
+    var infowindow = new google.maps.InfoWindow({// add this in
+      content: obj.name + '<br>' + '<img src=' + obj.image_url + '>'
+    });
+    marker.addListener('mouseover', function() {
+      infowindow.open(map, this);
+    });
+    marker.addListener('mouseout', function() {
+      infowindow.close();
+    });
+
+    // marker.addListener(':hover', function() {
+    //   infowindow.open(map, marker);
+    // });
   }
