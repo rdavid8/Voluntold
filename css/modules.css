@@ -7,6 +7,7 @@ html, body {
 #map {
   height: 100%;
   animation-duration: 8s;
+  display: none;
 }
 
 /*LANDING PAGE*/
@@ -40,7 +41,9 @@ html, body {
   position: relative;
 }
 
-
+#form{
+  display: none;
+}
 #f1{
   font-family: 'Pragati Narrow', sans-serif;
   font-size: 57px;
@@ -102,4 +105,5 @@ html, body {
   top: 0;
   z-index: 99;
   animation-duration: 3s;
+  display: none;
 }
