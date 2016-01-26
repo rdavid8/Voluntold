@@ -14,3 +14,36 @@
   display: block;
   margin: 0 auto;
 }
+/* Sidebar Section */
+
+article h1{
+  color: rgb(192,192,192);
+  text-align: center;
+  text-shadow: 2px 2px black;
+}
+
+article a img{
+  display: block;
+  margin: auto;
+  -moz-box-shadow: 1px 1px 1px 1px black;
+  -webkit-box-shadow: 1px 1px 1px 1px black;
+  box-shadow: 1px 1px 1px 1px black;
+  margin-bottom: 10%;
+
+}
+
+article address{
+  color: rgb(228,78,156);
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px black;
+}
+
+article text{
+  color: rgb(228,78,156);
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px black;
+
+}
