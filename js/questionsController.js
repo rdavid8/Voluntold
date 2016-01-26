@@ -16,7 +16,7 @@
       e.preventDefault();
       questionsController.location = $("#location").val();
       console.log(questionsController.location);
-      yelp.ajaxCall();
+      yelp.ajaxCall(Location.loadAll);
     });
   };
 

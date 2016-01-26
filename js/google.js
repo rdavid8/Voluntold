@@ -150,6 +150,6 @@ var createMarkers = function(obj) {
     var marker = new google.maps.Marker({
       position: {lat: obj.latitude, lng: obj.longitude},
       map: map,
-      title: 'Hello World!'
+      title: obj.name
     });
   }
