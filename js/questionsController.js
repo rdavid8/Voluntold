@@ -3,13 +3,14 @@
   var questionsController = {};
 
   questionsController.index = function(){
-    $('#sidebar').hide();
-    $('#map').hide();
+    // $('#sidebar').hide();
+    // $('#map').hide();
     $('#shade').addClass('animated fadeOut');
     $('#f1').addClass('animated fadeOutRightBig');
     $('#f2').addClass('animated fadeOutLeftBig');
     $('#bg').addClass('animated fadeOut');
     $('#q1').show().siblings().hide();
+    $('#form').show();
 
 
     $('form').on('click', 'li.cs-selected span', function(){
