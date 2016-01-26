@@ -85,6 +85,13 @@ html, body {
 
 /*QUESTIONS*/
 
+#how{
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
 #q1{
   color: white;
   position: fixed;
