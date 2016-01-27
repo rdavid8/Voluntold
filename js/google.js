@@ -8,7 +8,7 @@
       "elementType": "geometry",
       "stylers": [
           {
-              "color": "#333739"
+              "color": "#25004c"
           }
       ]
   },

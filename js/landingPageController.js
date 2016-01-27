@@ -3,9 +3,7 @@
   var landingPageController = {};
 
   landingPageController.index = function(){
-    // $('#map').hide();
-    // $('#form').hide();
-    // $('#sidebar').hide();
+    $('#logo').addClass('animated fadeInLogo');
     $('body').on('click', function(){
       window.location = '/questions';
     })

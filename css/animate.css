@@ -1240,6 +1240,31 @@
   animation-name: fadeIn;
 }
 
+@-webkit-keyframes fadeInLogo {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: .65;
+  }
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: .65;
+  }
+}
+
+.fadeInLogo {
+  -webkit-animation-name: fadeInLogo;
+  animation-name: fadeInLogo;
+}
+
 @-webkit-keyframes fadeInDown {
   from {
     opacity: 0;
