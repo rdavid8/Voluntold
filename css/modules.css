@@ -127,13 +127,24 @@ html, body {
 #q2{
   width: 80%;
   margin-top: 250px;
-  margin-left: 15%;
+  margin-left: 10%;
   text-align: center;
   z-index: 1;
   position: fixed;
   animation-duration: 7s;
 }
 
+#location {
+  font-size: 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-radius: 2em;
+  border: none;
+  background: #fff;
+  text-align: center;
+  color: #535d92
+}
 
 #sidebar{
   /*background-color: rgba(228,78,156,0.6);*/
