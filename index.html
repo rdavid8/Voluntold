@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <header>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <link rel="stylesheet" type="text/css" href="css/cs-select.css">
+    <link rel="stylesheet" type="text/css" href="css/cs-skin-border.css">
+    <link rel="stylesheet" type="text/css" href="css/q2.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/modules.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Pragati+Narrow' rel='stylesheet' type='text/css'>
+    <script id="result-template" type="text/x-handlebars-template">
+      <article>
+          <h1>{{name}}</h1>
+            <a href="{{url}}"><img src="{{image_url}}"/></a>
+            <address>
+              <div id="sidebar-address">
+                {{address}} <br>
+                {{city}}, {{state_code}} {{postal_code}} <br>
+                {{display_phone}}
+              </div>
+            </address>
+      </article>
+    </script>
+  </header>
+  <head>
+    <meta charset="UTF-8">
+    <title>development testing site</title>
+  </head>
+  <body>
+    <a href='questions'><div id='qtrigger'></div></a>
+    <section id='wrapper'>
+      <section id="landing">
+        <div id="f1">
+          <h1>Welcome to Voluntold</h1>
+        </div>
+        <div id="f2">
+          <h1>Let Us Help You To Give Back to Your Community</h1>
+        </div>
+        <div id="shade"></div>
+      </section>
+      <img id="bg" src="img/bg1.png">
+      <img id="bg2" src="img/bg2.png">
+      <img id="bg3" src="img/bg3.png">
+
+      <section id="questions">
+        <form id="form">
+          <section id="q1">
+            <div id="how">How Would You Like to Help?</div>
+            <select class="cs-select cs-skin-border" id="term">
+              <option selected="selected" value="humane society">Humane Society</option>
+              <option value="food bank">Food Bank</option>
+              <option value="church">Church</option>
+              <option value="homeless shelter">Homeless Shelter</option>
+              <option value="charity">Charity</option>
+            </select>
+          </section>
+          <section id="q2">
+            <span class="input input--kyo">
+    					<input type="text" name="location" value="Chicago" id="location">
+    					<label class="input__label input__label--kyo">
+    						<span class="input__label-content input__label-content--kyo">What Area Would You Like to Serve?</span>
+    					</label>
+              <input id ="submit2" type="submit" value="Submit">
+    				</span>
+          </section>
+        </form>
+      </section>
+    </section>
+
+    <section id="error">
+      <div id="e1">
+        <h1>Sorry, No Results Found</h1>
+      </div>
+      <div id="e2">
+        <h1>Please Restart the Search</h1>
+      </div>
+      <img id="bg4" src="img/bg4.png">
+      <div id="shade2"></div>
+    </section>
+
+
+
+
+
+      <div id="sidebar"></div>
+      <div id="map"></div>
+      <img id="logo" src="img/logo.png">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="vendors/html5sql.js"></script>
+    <script src="vendors/webdb.js"></script>
+    <script src="vendors/page.js"></script>
+    <script src="vendors/handlebars.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/cssStuff.js"></script>
+    <script src="js/yelp.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/google.js"></script>
+    <script src="js/landingPageController.js"></script>
+    <script src="js/questionsController.js"></script>
+    <script src="js/errorPageController.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8XmSCOn83UDkb8RI9xhf0PYHNexEwrJQ&callback=initMap">
+    </script>
+    <script src="vendors/infobubble.js"></script>
+    <script src="js/routes.js"></script>
+  </body>
+</html>
