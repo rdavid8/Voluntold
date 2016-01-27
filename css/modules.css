@@ -4,6 +4,27 @@ html, body {
   padding: 0;
 }
 
+#logo {
+  position: fixed;
+  display: block;
+  width: 65px;
+  bottom: 10px;
+  left: 10px;
+  z-index: 99;
+  transition: all 1.4s;
+  animation-duration: 8s;
+  opacity: .65;
+}
+
+
+#logo:hover {
+  transform: rotate(12deg) scale(1.1);
+  transition: all 1.4s;
+  opacity: 1;
+}
+
+
+
 #map {
   height: 100%;
   animation-duration: 8s;
