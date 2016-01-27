@@ -3,9 +3,7 @@
   var questionsController = {};
 
   questionsController.index = function(){
-    // $('#sidebar').hide();
-    // $('#map').hide();
-    $('#shade').addClass('blue');;
+    $('#shade').addClass('blue');
     $('#f1').addClass('animated fadeOutRightBig');
     $('#f2').addClass('animated fadeOutLeftBig');
     $('#bg').addClass('animated fadeOut');
@@ -30,8 +28,12 @@
       e.preventDefault();
       questionsController.location = $("#location").val();
       console.log(questionsController.location);
-      $('#form').hide();
       yelp.ajaxCall(Location.prepResults); //This will be our new function call to trigger page.js
+      $('#questions').addClass('animated fadeOut');
+      $('#map').addClass('animated fadeIn').show();
+      $('#sidebar').addClass('animated fadeInRight').show();
+      $('#bg3').addClass('animated fadeOut');
+      $('#shade').addClass('animated fadeOut');
     });
 
   };
