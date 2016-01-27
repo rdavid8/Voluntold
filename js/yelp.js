@@ -23,10 +23,13 @@
       },
       success: function(data) {
         manageDB.deleteTable(function(){}); // Delete any previous data in database so we can fill it up again.
-        var bus = JSON.parse(data).businesses; //variable bus now houses business objects.
-        $.each(bus, function(i){
-          manageDB.populateDB(bus[i]) // Populate DB with each business obj
-        });
+        if(JSON.parse(data).businesses) {
+          console.log("businesses exisit");
+          var bus = JSON.parse(data).businesses; //variable bus now houses business objects.
+          $.each(bus, function(i){
+            manageDB.populateDB(bus[i]) // Populate DB with each business obj
+          });
+        }
       },
       error: function() {
         console.log('There was an error');

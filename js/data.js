@@ -88,7 +88,11 @@ Location.html = function(obj) {
 };
 Location.loadAll = function() {
   webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
-      if(rows.length){ //If there are rows in the DB do the following:
+      if(!rows.length){ //If there are rows in the DB do the following:
+        var errorLink = $('<a href="noresults"><div id="errorclick"></div></a>');
+          $('#errorclick').trigger('click');
+
+      } else {
         Location.grabLocs(rows);
         var center = {lat: Location.all[0].latitude, lng: Location.all[0].longitude}; //This will be passed to map.
         initMap(center);
@@ -99,6 +103,7 @@ Location.loadAll = function() {
           $('#sidebar').append(Location.html(obj));
 
         })
+        //display no results
       }
   })
 }
