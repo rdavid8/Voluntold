@@ -140,7 +140,7 @@ html, body {
   background-color: rgba(0,0,0,0.7);
   position: fixed;
   width: 20%;
-  height: 800px;
+  height: 100%;
   right: 0;
   top: 0;
   z-index: 3;
