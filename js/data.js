@@ -5,7 +5,7 @@
 
 
   function Location (arr) {
-    this.name = arr[0] || '',
+    this.name = arr[0] || '', // '' avoids undefined
     this.display_phone = arr[1] || '',
     this.address = arr[2] || '',
     this.city = arr[3] || '',
@@ -66,28 +66,22 @@ manageDB.longRep = function(x){
 }
 manageDB.populateDB = function(bus){
   var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url];
-  var thisLoc = new Location(arr);
+  var thisLoc = new Location(arr); //make an array of properties and pass it into object constructor for location.
   thisLoc.insertSelf(); //Insert self into SQL
 };
 
 Location.grabLocs = function(rows){
   Location.all = rows; //Load up the rows
+  console.log(rows);
 }
 Location.html = function(obj) {
   var template = Handlebars.compile($('#result-template').text());
   console.log("this is the obj in Location:html " + obj);
-  // this.display_phone =
-  // this.address =
-  // this.city =
-  // this.postal_code =
-  // this.state_code =
-  // this.image_url =
-  // this.url =
   return template(obj);
 
 };
-Location.prepResults = function(){
-  var $aTag = $('<a></a>').attr('href', 'results');
+Location.prepResults = function(){ //callback once ajax is complete.
+  var $aTag = $('<a></a>').attr('href', 'results'); //creating aTag. routing without using window location
   var $divTag = $('<div></div>').attr('id', 'clicker');
   $('body').prepend($aTag);
   $aTag.append($divTag);
@@ -96,30 +90,31 @@ Location.prepResults = function(){
 }
 Location.loadAll = function() {
   webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
-      if(!rows.length){ //If there are rows in the DB do the following:
-        var $aTag = $('<a></a>').attr('href', 'noresults');
+      if(!rows.length){ //If there are not rows in the DB do the following:
+        var $aTag = $('<a></a>').attr('href', 'noresults'); //creating another route to no results page
         var $divTag = $('<div></div>').attr('id', 'errorclick');
         $('body').prepend($aTag);
         $aTag.append($divTag);
         $('#errorclick').trigger('click');
         $aTag.remove();
       } else {
-        console.log('hitting loadAll');
+
         $('#map').addClass('animated fadeIn').show();
         $('#sidebar').addClass('animated fadeInRight').show();
         $('#bg3').addClass('animated fadeOut');
         $('#shade').addClass('animated fadeOut');
         $('#landing').hide();
-        Location.grabLocs(rows);
+
+        Location.grabLocs(rows); //passing in rows from database
         var averageLoc = JSON.parse(localStorage.getItem('averageLoc'));
         var center = {lat:  averageLoc.lat, lng: averageLoc.long}; //This will be passed to map.
         initMap(center);
-        $('#sidebar').empty();
-        $.map(Location.all, function(obj){
+          $('#sidebar').empty();
+        $.map(Location.all, function(obj){ //
           setTimeout(function(){
             createMarkers(obj) // Create map marker per each in the array.
           }, obj.id * 250)
-          $('#sidebar').append(Location.html(obj));
+          $('#sidebar').append(Location.html(obj)); //adding objects into sidebar.
 
         })
         //display no results

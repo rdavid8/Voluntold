@@ -155,7 +155,6 @@ var createMarkers = function(obj) {
       icon: markerImg,
       animation: google.maps.Animation.DROP,
     });
-    marker.addListener('click', toggleBounce);
 
 var contentString = '<div id="content">'+
       '<h3 id="markerName" class="firstHeading">' + obj.name + '</h3>' +
