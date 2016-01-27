@@ -5,16 +5,16 @@
 
 
   function Location (arr) {
-    this.name = arr[0],
-    this.display_phone = arr[1],
-    this.address = arr[2],
-    this.city = arr[3],
-    this.postal_code = arr[4],
-    this.state_code = arr[5],
-    this.latitude = arr[6],
-    this.longitude = arr[7],
-    this.image_url = arr[8],
-    this.url = arr[9]
+    this.name = arr[0] || '',
+    this.display_phone = arr[1] || '',
+    this.address = arr[2] || '',
+    this.city = arr[3] || '',
+    this.postal_code = arr[4] || '',
+    this.state_code = arr[5] || '',
+    this.latitude = arr[6] || '',
+    this.longitude = arr[7] || '',
+    this.image_url = arr[8] || 'img/marker100.png',
+    this.url = arr[9] || ''
   }
 
   Location.prototype.insertSelf = function() {
