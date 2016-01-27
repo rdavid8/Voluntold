@@ -89,39 +89,43 @@ Location.prepResults = function(){ //callback once ajax is complete.
   $aTag.remove();
 }
 Location.loadAll = function() {
-  webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
-      if(!rows.length){ //If there are not rows in the DB do the following:
-        var $aTag = $('<a></a>').attr('href', 'noresults'); //creating another route to no results page
-        var $divTag = $('<div></div>').attr('id', 'errorclick');
-        $('body').prepend($aTag);
-        $aTag.append($divTag);
-        $('#errorclick').trigger('click');
-        $aTag.remove();
-      } else {
+  if(back){
+    window.location = '/'
+  } else {
+    back = true;
+    webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
+        if(!rows.length){ //If there are not rows in the DB do the following:
+          var $aTag = $('<a></a>').attr('href', 'noresults'); //creating another route to no results page
+          var $divTag = $('<div></div>').attr('id', 'errorclick');
+          $('body').prepend($aTag);
+          $aTag.append($divTag);
+          $('#errorclick').trigger('click');
+          $aTag.remove();
+        } else {
 
-        $('#map').addClass('animated fadeIn').show();
-        $('#sidebar').addClass('animated fadeInRight').show();
-        $('#bg3').addClass('animated fadeOut');
-        $('#shade').addClass('animated fadeOut');
-        $('#landing').hide();
+          $('#map').addClass('animated fadeIn').show();
+          $('#sidebar').addClass('animated fadeInRight').show();
+          $('#bg3').addClass('animated fadeOut');
+          $('#shade').addClass('animated fadeOut');
+          $('#landing').hide();
 
-        Location.grabLocs(rows); //passing in rows from database
-        var averageLoc = JSON.parse(localStorage.getItem('averageLoc'));
-        var center = {lat:  averageLoc.lat, lng: averageLoc.long}; //This will be passed to map.
-        initMap(center);
-          $('#sidebar').empty();
-        $.map(Location.all, function(obj){ //
-          setTimeout(function(){
-            createMarkers(obj) // Create map marker per each in the array.
-          }, obj.id * 250)
-          $('#sidebar').append(Location.html(obj)); //adding objects into sidebar.
+          Location.grabLocs(rows); //passing in rows from database
+          var averageLoc = JSON.parse(localStorage.getItem('averageLoc'));
+          var center = {lat:  averageLoc.lat, lng: averageLoc.long}; //This will be passed to map.
+          initMap(center);
+            $('#sidebar').empty();
+          $.map(Location.all, function(obj){ //
+            setTimeout(function(){
+              createMarkers(obj) // Create map marker per each in the array.
+            }, obj.id * 250)
+            $('#sidebar').append(Location.html(obj)); //adding objects into sidebar.
 
-        })
-        //display no results
-      }
-  })
+          })
+          //display no results
+        }
+    })
+  }
 }
-
 Location.all = [];
 
   module.Location = Location;
