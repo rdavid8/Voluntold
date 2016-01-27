@@ -162,8 +162,6 @@ var contentString = '<div id="content">'+
       '<div id="imgArea">'+ '<img src=' + obj.image_url + '>' +'</div>'+
       '</div>';
 
-
-
     function toggleBounce() {
       if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
@@ -171,32 +169,34 @@ var contentString = '<div id="content">'+
         // setTimeout(function(){marker.setAnimation(null); }, 1480);
       }
     }
-    var infowindow = new google.maps.InfoWindow({// add this in
-      content: contentString,
-      closeBoxURL: ""
-    });
-
-    google.maps.event.addListener(infowindow, 'domready', function(){
-    $(".gm-style-iw").next("div").hide();
-  });
-
+    var infoBubble = new InfoBubble({
+          map: map,
+          content: contentString,
+          // position: new google.maps.LatLng(-32.0, 149.0),
+          shadowStyle: 1,
+          padding: 0,
+          backgroundColor: 'rgba(228, 78, 156, 0.9)',
+          borderRadius: 5,
+          arrowSize: 10,
+          minWidth: 200,
+          // maxWidth: 300,
+          borderWidth: 1,
+          borderColor: '#2c2c2c',
+          disableAutoPan: true,
+          hideCloseButton: true,
+          arrowPosition: 30,
+          backgroundClassName: 'transparent',
+          arrowStyle: 2
+        });
 
     marker.addListener('mouseover', function() {
-      infowindow.open(map, this);
+      infoBubble.open(map, this);
       // marker.setAnimation(google.maps.Animation.BOUNCE);
-
     });
-    // infowindow.addListener('click', function () {
-    //   infowindow.close();
-    //   marker.setAnimation(null);
-    // });
+
     marker.addListener('mouseout', function() {
-      infowindow.close();
+      infoBubble.close();
       marker.setAnimation(null);
-
     });
 
-    // marker.addListener(':hover', function() {
-    //   infowindow.open(map, marker);
-    // });
   }

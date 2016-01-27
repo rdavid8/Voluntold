@@ -75,7 +75,7 @@ Location.grabLocs = function(rows){
 }
 Location.html = function(obj) {
   var template = Handlebars.compile($('#result-template').text());
-  console.log()
+  console.log("this is the obj in Location:html " + obj);
   // this.display_phone =
   // this.address =
   // this.city =
