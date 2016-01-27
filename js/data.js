@@ -111,7 +111,8 @@ Location.loadAll = function() {
         $('#shade').addClass('animated fadeOut');
         $('#landing').hide();
         Location.grabLocs(rows);
-        var center = {lat: Location.all[0].latitude, lng: Location.all[0].longitude}; //This will be passed to map.
+        var averageLoc = JSON.parse(localStorage.getItem('averageLoc'));
+        var center = {lat:  averageLoc.lat, lng: averageLoc.long}; //This will be passed to map.
         initMap(center);
         $('#sidebar').empty();
         $.map(Location.all, function(obj){
