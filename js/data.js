@@ -93,8 +93,9 @@ Location.loadAll = function() {
         var center = {lat: Location.all[0].latitude, lng: Location.all[0].longitude}; //This will be passed to map.
         initMap(center);
         $.map(Location.all, function(obj){
-          createMarkers(obj); // Create map marker per each in the array.
-
+          setTimeout(function(){
+            createMarkers(obj) // Create map marker per each in the array.
+          }, obj.id * 250)
           $('#sidebar').append(Location.html(obj));
 
         })
