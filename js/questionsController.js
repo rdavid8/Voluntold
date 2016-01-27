@@ -31,11 +31,7 @@
       questionsController.location = $("#location").val();
       console.log(questionsController.location);
       $('#form').hide();
-      yelp.ajaxCall(Location.loadAll);
-      $('#map').addClass('animated fadeIn').show();
-      $('#sidebar').addClass('animated fadeInRight').show();
-      $('#bg3').addClass('animated fadeOut');
-      $('#shade').addClass('animated fadeOut');
+      yelp.ajaxCall(Location.prepResults); //This will be our new function call to trigger page.js
     });
 
   };
