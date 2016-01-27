@@ -34,6 +34,8 @@
       yelp.ajaxCall(Location.loadAll);
       $('#map').addClass('animated fadeIn').show();
       $('#sidebar').addClass('animated fadeInRight').show();
+      $('#bg3').addClass('animated fadeOut');
+      $('#shade').addClass('animated fadeOut');
     });
 
   };
