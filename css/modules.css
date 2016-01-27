@@ -1,0 +1,129 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 100%;
+  animation-duration: 8s;
+  display: none;
+}
+
+/*LANDING PAGE*/
+
+#bg, #bg2, #bg3{
+  z-index: -1;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation-duration: 4s;
+}
+#bg2, #bg3{
+  display: none;
+}
+
+#shade{
+  z-index: 0;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(22,22,22,0.9);
+  animation-duration: 6s;
+  transition-property: background-color;
+  transition-duration: 3s;
+  transition-timing-function: linear;
+}
+#shade.blue{
+  background-color: rgba(21,77,97,0.5);
+}
+#shade.purp{
+  background-color: rgba(87,1,111,0.5);
+}
+
+#landing{
+  position: relative;
+}
+
+#form{
+  display: none;
+}
+#f1{
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 57px;
+  font-weight: bold;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  width: 90%;
+  margin-top: 143px;
+  margin-left: 5%;
+  z-index: 1;
+  position: fixed;
+  animation-duration: 2s;
+}
+
+#f2{
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 24.8px;
+  color: rgba(46,231,101,0.7);
+  text-align: center;
+  width: 80%;
+  margin-top: 160px;
+  margin-left: 10%;
+  z-index: 1;
+  position: fixed;
+  animation-duration: 3s;
+}
+
+/*QUESTIONS*/
+
+#how{
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#q1{
+  color: white;
+  position: fixed;
+  width: 80%;
+  margin-top: 150px;
+  margin-left: 10%;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  animation-duration: 3s;
+}
+
+#q2{
+  width: 80%;
+  margin-top: 250px;
+  margin-left: 15%;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  animation-duration: 4s;
+}
+
+
+#sidebar{
+  background-color: rgba(50,50,50,0.7);
+  position: fixed;
+  width: 20%;
+  height: 800px;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  animation-duration: 3s;
+  display: none;
+  overflow: auto;
+}
