@@ -89,10 +89,8 @@ Location.html = function(obj) {
 Location.loadAll = function() {
   webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
       if(!rows.length){ //If there are rows in the DB do the following:
-        var $aTag = $('<a></a>')
-        var $divTag = $('<div></div>')
-        $aTag.attr('href', 'noresults');
-        $divTag.attr('id', 'errorclick');
+        var $aTag = $('<a></a>').attr('href', 'noresults');
+        var $divTag = $('<div></div>').attr('id', 'errorclick');
         $('body').prepend($aTag);
         $aTag.append($divTag);
         $('#errorclick').trigger('click');
@@ -101,6 +99,7 @@ Location.loadAll = function() {
         Location.grabLocs(rows);
         var center = {lat: Location.all[0].latitude, lng: Location.all[0].longitude}; //This will be passed to map.
         initMap(center);
+        $('#sidebar').empty();
         $.map(Location.all, function(obj){
           setTimeout(function(){
             createMarkers(obj) // Create map marker per each in the array.
