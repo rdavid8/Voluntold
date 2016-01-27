@@ -95,7 +95,7 @@ html, body {
 }
 #f1{
   font-family: 'Pragati Narrow', sans-serif;
-  font-size: 57px;
+  font-size: 380%;
   font-weight: bold;
   color: rgba(255,255,255,0.8);
   text-align: center;
@@ -105,11 +105,12 @@ html, body {
   z-index: 1;
   position: fixed;
   animation-duration: 2s;
+  white-space: nowrap;
 }
 
 #f2{
   font-family: 'Pragati Narrow', sans-serif;
-  font-size: 24.8px;
+  font-size: 100%;
   color: rgba(46,231,101,0.7);
   text-align: center;
   width: 80%;
@@ -118,6 +119,8 @@ html, body {
   z-index: 1;
   position: fixed;
   animation-duration: 3s;
+  white-space: nowrap;
+
 }
 
 
