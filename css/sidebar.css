@@ -1,0 +1,68 @@
+ /*Google Maps Marker Info Window Style */
+div#content {
+  margin: auto;
+  padding: 1%;
+}
+
+#markerName {
+  text-align: center;
+  padding: 1%;
+}
+
+#imgArea img {
+  display: block;
+  margin: 0 auto;
+}
+
+div#imgArea {
+  padding: 1%;
+}
+
+/* Sidebar Section */
+
+
+article {
+  transition: all 1s;
+  animation-duration: 8s;
+  opacity: .65;
+  z-index: 4;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-color: rgb(228,78,156);
+  border-width: thin;
+  border-style: solid;
+}
+
+
+article:hover {
+  color: rgb(225,225,225);
+  transform: scale(1.08);
+  transition: all 1s;
+  opacity: 1;
+  background-color: rgb(228,78,156);
+  border-style: none;
+}
+
+article h1{
+  font-size: 1.2em;
+  color: rgb(255,255,255);
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+article a img{
+  display: block;
+  margin: auto;
+  -moz-box-shadow: 1px 1px 1px 1px black;
+  -webkit-box-shadow: 1px 1px 1px 1px black;
+  box-shadow: 1px 1px 1px 1px black;
+  margin-bottom: 5%;
+}
+
+article address{
+  color: rgb(225,225,225);
+  font-size: .8em;
+  font-weight: bold;
+  text-align: center;
+}
