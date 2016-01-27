@@ -13,7 +13,7 @@
 
 
     $('form').on('click', 'li.cs-selected span', function(){
-        questionsController.term = $("#term").val();
+        questionsController.term = $("#term").val(); //grabbing from the drop down selection
         console.log(questionsController.term);
         $('#shade').addClass('purp');
         $('#q1').addClass('animated fadeOutUp');
@@ -26,14 +26,14 @@
 
     $('#submit2').on('click', function(e){
       e.preventDefault();
-      questionsController.location = $("#location").val();
+      questionsController.location = $("#location").val(); //grabbing location from input box
       console.log(questionsController.location);
       yelp.ajaxCall(Location.prepResults); //This will be our new function call to trigger page.js
-      $('#questions').addClass('animated fadeOut');
-      $('#map').addClass('animated fadeIn').show();
-      $('#sidebar').addClass('animated fadeInRight').show();
-      $('#bg3').addClass('animated fadeOut');
-      $('#shade').addClass('animated fadeOut');
+        $('#questions').addClass('animated fadeOut');
+        $('#map').addClass('animated fadeIn').show();
+        $('#sidebar').addClass('animated fadeInRight').show();
+        $('#bg3').addClass('animated fadeOut');
+        $('#shade').addClass('animated fadeOut');
     });
 
   };
