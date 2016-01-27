@@ -152,27 +152,33 @@ html, body {
 
 #e1{
   display: none;
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 47px;
   color: white;
-  position: fixed;
-  width: 80%;
-  margin-top: 150px;
-  margin-left: 10%;
   text-align: center;
+  width: 80%;
+  margin-top: 140px;
+  margin-left: 10%;
   z-index: 1;
   position: fixed;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 #e2{
   display: none;
-  width: 80%;
-  margin-top: 250px;
-  margin-left: 10%;
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fb5c00;
   text-align: center;
+  width: 90%;
+  margin-top: 275px;
+  margin-left: 5%;
   z-index: 1;
   position: fixed;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
+
 
 #location {
   font-size: 35px;
