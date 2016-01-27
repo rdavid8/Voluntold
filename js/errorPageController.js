@@ -5,6 +5,8 @@
   errorPageController.index = function(){
     $('#landing').hide();
     $('#questions').hide();
+    $('#sidebar').hide();
+    $('#map').hide(); 
     $('#error').addClass('animated fadeIn').show();
     $('#e1').addClass('animated fadeInUp').show();
     $('#e2').addClass('animated fadeInDownBig').show();
