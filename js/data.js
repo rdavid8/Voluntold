@@ -95,7 +95,7 @@ Location.loadAll = function() {
         $.map(Location.all, function(obj){
           setTimeout(function(){
             createMarkers(obj) // Create map marker per each in the array.
-          }, obj.id * 300)
+          }, obj.id * 250)
           $('#sidebar').append(Location.html(obj));
 
         })
