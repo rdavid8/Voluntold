@@ -59,5 +59,6 @@ div.cs-skin-border {
 
 .cs-skin-border .cs-options li span:hover,
 .cs-skin-border li.cs-focus span {
-	background: #f5f3ec;
+	background: rgba(121,149,160,0.7);
+	color: white;
 }

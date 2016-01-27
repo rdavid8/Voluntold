@@ -57,7 +57,7 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(22,22,22,0.9);
+  background-color: rgba(22,22,22,0.8);
   animation-duration: 6s;
   transition-property: background-color;
   transition-duration: 3s;
@@ -67,7 +67,7 @@ html, body {
   background-color: rgba(21,77,97,0.5);
 }
 #shade.purp{
-  background-color: rgba(87,1,111,0.5);
+  background-color: rgba(87,1,111,0.4);
 }
 
 #landing{
@@ -104,7 +104,6 @@ html, body {
   animation-duration: 3s;
 }
 
-/*QUESTIONS*/
 
 #how{
     font-weight: bold;
@@ -132,18 +131,19 @@ html, body {
   text-align: center;
   z-index: 1;
   position: fixed;
-  animation-duration: 4s;
+  animation-duration: 7s;
 }
 
 
 #sidebar{
-  background-color: rgba(50,50,50,0.7);
+  /*background-color: rgba(228,78,156,0.6);*/
+  background-color: rgba(0,0,0,0.7);
   position: fixed;
   width: 20%;
   height: 800px;
   right: 0;
   top: 0;
-  z-index: 99;
+  z-index: 3;
   animation-duration: 3s;
   display: none;
   overflow: auto;
