@@ -1,0 +1,10 @@
+#logopullout {
+  position: fixed;
+  display: block;
+  background-color: rgba(228, 78, 156, 0.5);
+  height: 50px;
+  width: 50px;
+  bottom: 10px;
+  left: 10px;
+  z-index: 98;
+}
