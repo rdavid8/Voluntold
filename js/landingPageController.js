@@ -4,8 +4,8 @@
 
   landingPageController.index = function(){
     $('#logo').addClass('animated fadeInLogo');
-    $('body').on('click', function(){
-      window.location = '/questions';
+    $('#wrapper').one('click', function(){
+      $('#qtrigger').trigger('click');
     })
     $('#f1').addClass('animated fadeInUp');
     $('#f2').addClass('animated fadeInDownBig');
