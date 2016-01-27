@@ -157,10 +157,11 @@ var createMarkers = function(obj) {
     });
     marker.addListener('click', toggleBounce);
 
-var contentString = '<div id="content">' +
-      '<h1 id="markerName" class="firstHeading">' + obj.name + '</h1>' +
-      '<div id="imgArea">'+ '<img src=' + obj.image_url + '>' + '</div>'+
+var contentString = '<div id="content">'+
+      '<h3 id="markerName" class="firstHeading">' + obj.name + '</h3>' +
+      '<div id="imgArea">'+ '<img src=' + obj.image_url + '>' +'</div>'+
       '</div>';
+
 
 
     function toggleBounce() {
@@ -171,14 +172,24 @@ var contentString = '<div id="content">' +
       }
     }
     var infowindow = new google.maps.InfoWindow({// add this in
-      content: contentString
+      content: contentString,
+      closeBoxURL: ""
     });
+
+    google.maps.event.addListener(infowindow, 'domready', function(){
+    $(".gm-style-iw").next("div").hide();
+  });
+
+
     marker.addListener('mouseover', function() {
       infowindow.open(map, this);
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-
+      // marker.setAnimation(google.maps.Animation.BOUNCE);
 
     });
+    // infowindow.addListener('click', function () {
+    //   infowindow.close();
+    //   marker.setAnimation(null);
+    // });
     marker.addListener('mouseout', function() {
       infowindow.close();
       marker.setAnimation(null);
