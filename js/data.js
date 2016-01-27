@@ -86,6 +86,14 @@ Location.html = function(obj) {
   return template(obj);
 
 };
+Location.prepResults = function(){
+  var $aTag = $('<a></a>').attr('href', 'results');
+  var $divTag = $('<div></div>').attr('id', 'clicker');
+  $('body').prepend($aTag);
+  $aTag.append($divTag);
+  $('#clicker').trigger('click');
+  $aTag.remove();
+}
 Location.loadAll = function() {
   webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
       if(!rows.length){ //If there are rows in the DB do the following:
@@ -96,6 +104,12 @@ Location.loadAll = function() {
         $('#errorclick').trigger('click');
         $aTag.remove();
       } else {
+        console.log('hitting loadAll');
+        $('#map').addClass('animated fadeIn').show();
+        $('#sidebar').addClass('animated fadeInRight').show();
+        $('#bg3').addClass('animated fadeOut');
+        $('#shade').addClass('animated fadeOut');
+        $('#landing').hide();
         Location.grabLocs(rows);
         var center = {lat: Location.all[0].latitude, lng: Location.all[0].longitude}; //This will be passed to map.
         initMap(center);
