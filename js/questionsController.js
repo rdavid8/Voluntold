@@ -3,9 +3,7 @@
   var questionsController = {};
 
   questionsController.index = function(){
-    // $('#sidebar').hide();
-    // $('#map').hide();
-    $('#shade').addClass('blue');;
+    $('#shade').addClass('blue');
     $('#f1').addClass('animated fadeOutRightBig');
     $('#f2').addClass('animated fadeOutLeftBig');
     $('#bg').addClass('animated fadeOut');
@@ -30,7 +28,7 @@
       e.preventDefault();
       questionsController.location = $("#location").val();
       console.log(questionsController.location);
-      $('#form').hide();
+      $('#questions').addClass('animated fadeOut');
       yelp.ajaxCall(Location.loadAll);
       $('#map').addClass('animated fadeIn').show();
       $('#sidebar').addClass('animated fadeInRight').show();

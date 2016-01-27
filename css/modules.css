@@ -33,7 +33,7 @@ html, body {
 
 /*LANDING PAGE*/
 
-#bg, #bg2, #bg3{
+#bg, #bg2, #bg3, #bg4{
   z-index: -1;
   min-height: 100%;
   min-width: 1024px;
@@ -44,7 +44,7 @@ html, body {
   left: 0;
   animation-duration: 4s;
 }
-#bg2, #bg3{
+#bg2, #bg3, #bg4{
   display: none;
 }
 
@@ -68,6 +68,22 @@ html, body {
 }
 #shade.purp{
   background-color: rgba(87,1,111,0.4);
+}
+#shade2{
+  display: none;
+  z-index: 0;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(250,90,0,0.2);
+  animation-duration: 1s;
+  transition-property: background-color;
+  transition-duration: 1s;
+  transition-timing-function: linear;
 }
 
 #landing{
@@ -132,6 +148,30 @@ html, body {
   z-index: 1;
   position: fixed;
   animation-duration: 7s;
+}
+
+#e1{
+  display: none;
+  color: white;
+  position: fixed;
+  width: 80%;
+  margin-top: 150px;
+  margin-left: 10%;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  animation-duration: 2s;
+}
+
+#e2{
+  display: none;
+  width: 80%;
+  margin-top: 250px;
+  margin-left: 10%;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  animation-duration: 2s;
 }
 
 #location {
