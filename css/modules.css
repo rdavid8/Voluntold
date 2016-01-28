@@ -242,65 +242,71 @@ html, body {
 }
 
 #x:hover{
-  transform: rotate(180deg) scale(1.5);
-  transition-duration: all 5s;
+  transform: rotate(180deg) scale(1.1);
+  transition: all 1s;
 }
 
 #mainContainer{
   position: absolute;
   margin: 5%;
   width: 75%;
-  height: 85%;
+  height: 80%;
   left: 0;
   top: 0;
   border-style: solid;
   border-color: white;
   border-width: 2;
+  background-color: rgb(228,78,156);
 }
 
 #bioContainer{
   position: absolute;
   margin: 5%;
   width: 10%;
-  height: 85%;
+  height: 80%;
   right: 0;
   top: 0;
   border-style: solid;
   border-color: white;
   border-width: 2px;
+  overflow: hidden;
+  background-color: rgb(228,78,156);
 }
 
 #henry{
   background-color: rgb(228,78,156);
-  height: 25%;
-  max-height: 24.25%;
-  border-style: solid;
-  border-color: white;
-  border-width: 2px;
+  transition: all 1s;
 }
+
 #aj{
   background-color: rgb(228,78,156);
-  height: 25%;
-  max-height: 24.25%;
-  border-style: solid;
-  border-color: white;
-  border-width: 2px;
+  transition: all 1s;
 }
 #ryan{
   background-color: rgb(228,78,156);
-  height: 25%;
-  max-height: 24.25%;
-  border-style: solid;
-  border-color: white;
-  border-width: 2px;
+  transition: all 1s;
 }
 #brandon{
   background-color: rgb(228,78,156);
-  height: 25%;
-  max-height: 24.25%;
-  border-style: solid;
-  border-color: white;
-  border-width: 2px;
+  transition: all 1s;
+}
+
+#henry:hover{
+  transform: scale(1.2);
+  transition: all 1s;
+}
+
+#aj:hover{
+  transform: scale(1.2);
+  transition: all 1s;
+}
+#ryan:hover{
+  transform: scale(1.2);
+  transition: all 1s;
+}
+#brandon:hover{
+  transform: scale(1.2);
+  transition: all 1s;
 }
 
 iframe{
