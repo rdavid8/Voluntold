@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  min-width: 370px;
 }
 
 #logo {
@@ -20,7 +21,7 @@ html, body {
 #logo:hover {
   transform: rotate(12deg) scale(1.1);
   transition: all 1.4s;
-  opacity: 1; 
+  opacity: 1;
 }
 
 
@@ -96,12 +97,12 @@ html, body {
 }
 #f1{
   font-family: 'Pragati Narrow', sans-serif;
-  font-size: 380%;
+  font-size: 86px;
   font-weight: bold;
   color: rgba(255,255,255,0.8);
   text-align: center;
   width: 90%;
-  margin-top: 143px;
+  margin-top: 129px;
   margin-left: 5%;
   z-index: 1;
   position: fixed;
@@ -111,7 +112,7 @@ html, body {
 
 #f2{
   font-family: 'Pragati Narrow', sans-serif;
-  font-size: 100%;
+  font-size: 37.3px;
   color: rgba(46,231,101,0.7);
   text-align: center;
   width: 80%;
@@ -191,13 +192,13 @@ html, body {
   width: 100%;
   border-radius: 2em;
   border: none;
-  background: #fff;
+  background: white;
   text-align: center;
-  color: #535d92
+  color: #535d92;
+  outline-style: none;
 }
 
 #sidebar{
-  /*background-color: rgba(228,78,156,0.6);*/
   background-color: rgba(0,0,0,0.7);
   position: fixed;
   width: 20%;
