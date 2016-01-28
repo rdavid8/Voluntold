@@ -4,6 +4,7 @@ img {
 
 body {
   font-size: 100%;
+  min-width: 370px;
 }
 
 
