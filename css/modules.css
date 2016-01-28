@@ -20,7 +20,7 @@ html, body {
 #logo:hover {
   transform: rotate(12deg) scale(1.1);
   transition: all 1.4s;
-  opacity: 1;
+  opacity: 1; 
 }
 
 
