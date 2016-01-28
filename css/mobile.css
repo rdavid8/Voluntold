@@ -42,6 +42,46 @@
 
   }
 }
+
+@media only screen and (max-width: 880px){
+  #mainContainer{
+    display: block;
+    position: relative;
+    bottom: 100%;
+    width: 90%;
+    height: 40%;
+    top: 0;
+    border-style: solid;
+    border-color: white;
+    border-width: 2;
+  }
+
+  #bioContainer{
+    display: block;
+    position: relative;
+    width: 90%;
+    max-height: 20%;
+    right: 0;
+    top: 60%;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    overflow: hidden;
+    display: inline-block;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  #henry, #aj, #ryan, #brandon{
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: top;
+    margin-top: 0%;
+    width: 22%;
+  }
+
+}
+
 @media only screen and (min-width: 680px) and (max-width: 925px){
 
   #f2{
