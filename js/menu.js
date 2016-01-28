@@ -1,15 +1,14 @@
 var logo = $('#logo');
-
-  logo.on('click', function(){
+logo.on('click', function(){
   if($('.logopullout').attr('id') == 'logopulloutStart') {
     $('.logopullout').attr('id', 'logopulloutEnd');
     $('.home').attr('id', 'homeEnd');
     $('.about').attr('id', 'aboutEnd');
   } else if ($('.logopullout').attr('id') == 'logopulloutEnd') { //now we clear and assign close ID
-      $('.logopullout').attr('id', 'logopulloutStart');
-      $('.home').attr('id', 'homeStart');
-      $('.about').attr('id', 'aboutStart');
-    }
+    $('.logopullout').attr('id', 'logopulloutStart');
+    $('.home').attr('id', 'homeStart');
+    $('.about').attr('id', 'aboutStart');
+  }
 });
 
 $('.home').on('click', function(){
@@ -22,4 +21,4 @@ $('.about').on('click',function(){
 
 $('#x').on('click', function(){
   $('#about').removeClass('animated bounceIn').hide();
-})
+});

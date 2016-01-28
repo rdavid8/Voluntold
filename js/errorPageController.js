@@ -16,5 +16,5 @@
     $('#shade2').addClass('animated fadeIn').show();
   };
 
-    module.errorPageController = errorPageController;
+  module.errorPageController = errorPageController;
 })(window);
