@@ -2,6 +2,7 @@
 
   var questionsController = {};
   questionsController.index = function(){
+    qback = true;
     if(back){
       window.location = '/';
     } else {
