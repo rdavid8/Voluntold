@@ -18,5 +18,4 @@ var logo = $('#logo');
 
 $('.home').on('click', function(){
   window.location = '/';
-
 })
