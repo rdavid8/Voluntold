@@ -278,7 +278,8 @@
     map = new google.maps.Map(document.getElementById('map'), {
       center: center,
       styles: styleArray,
-      zoom: 12
+      zoom: 12,
+      disableDefaultUI: true
     });
   }
 
