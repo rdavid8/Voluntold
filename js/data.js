@@ -2,8 +2,6 @@
 
   manageDB = {};
 
-
-
   function Location (arr) {
     this.name = arr[0] || '', // '' avoids undefined
     this.display_phone = arr[1] || '',
@@ -14,7 +12,7 @@
     this.latitude = arr[6] || '',
     this.longitude = arr[7] || '',
     this.image_url = arr[8] || 'img/marker100.png',
-    this.url = arr[9] || ''
+    this.url = arr[9] || '';
   }
 
   Location.prototype.insertSelf = function() {
@@ -50,50 +48,48 @@
         callback
     );
   };
-manageDB.latRep = function(x){
-  if (x) {
-    return x.latitude;
-  } else {
-    return undefined;
-  }
-}
-manageDB.longRep = function(x){
-  if (x) {
-    return x.longitude;
-  } else {
-    return undefined;
-  }
-}
-manageDB.populateDB = function(bus){
-  var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url];
-  var thisLoc = new Location(arr); //make an array of properties and pass it into object constructor for location.
-  thisLoc.insertSelf(); //Insert self into SQL
-};
+  manageDB.latRep = function(x){
+    if (x) {
+      return x.latitude;
+    } else {
+      return undefined;
+    }
+  };
+  manageDB.longRep = function(x){
+    if (x) {
+      return x.longitude;
+    } else {
+      return undefined;
+    }
+  };
+  manageDB.populateDB = function(bus){
+    var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url];
+    var thisLoc = new Location(arr); //make an array of properties and pass it into object constructor for location.
+    thisLoc.insertSelf(); //Insert self into SQL
+  };
 
-Location.grabLocs = function(rows){
-  Location.all = rows; //Load up the rows
-  console.log(rows);
-}
-Location.html = function(obj) {
-  var template = Handlebars.compile($('#result-template').text());
-  console.log("this is the obj in Location:html " + obj);
-  return template(obj);
-
-};
-Location.prepResults = function(){ //callback once ajax is complete.
-  var $aTag = $('<a></a>').attr('href', 'results'); //creating aTag. routing without using window location
-  var $divTag = $('<div></div>').attr('id', 'clicker');
-  $('body').prepend($aTag);
-  $aTag.append($divTag);
-  $('#clicker').trigger('click');
-  $aTag.remove();
-}
-Location.loadAll = function() {
-  if(back){
-    window.location = '/'
-  } else {
-    back = true;
-    webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
+  Location.grabLocs = function(rows){
+    Location.all = rows; //Load up the rows
+    console.log(rows);
+  };
+  Location.html = function(obj) {
+    var template = Handlebars.compile($('#result-template').text());
+    return template(obj);
+  };
+  Location.prepResults = function(){ //callback once ajax is complete.
+    var $aTag = $('<a></a>').attr('href', 'results'); //creating aTag. routing without using window location
+    var $divTag = $('<div></div>').attr('id', 'clicker');
+    $('body').prepend($aTag);
+    $aTag.append($divTag);
+    $('#clicker').trigger('click');
+    $aTag.remove();
+  };
+  Location.loadAll = function() {
+    if(back){
+      window.location = '/';
+    } else {
+      back = true;
+      webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
         if(!rows.length){ //If there are not rows in the DB do the following:
           var $aTag = $('<a></a>').attr('href', 'noresults'); //creating another route to no results page
           var $divTag = $('<div></div>').attr('id', 'errorclick');
@@ -102,7 +98,6 @@ Location.loadAll = function() {
           $('#errorclick').trigger('click');
           $aTag.remove();
         } else {
-
           $('#map').addClass('animated fadeIn').show();
           $('#sidebar').addClass('animated fadeInRight').show();
           $('#bg3').addClass('animated fadeOut');
@@ -113,23 +108,19 @@ Location.loadAll = function() {
           var averageLoc = JSON.parse(localStorage.getItem('averageLoc'));
           var center = {lat:  averageLoc.lat, lng: averageLoc.long}; //This will be passed to map.
           initMap(center);
-            $('#sidebar').empty();
+          $('#sidebar').empty();
           $.map(Location.all, function(obj){ //
             setTimeout(function(){
-              createMarkers(obj) // Create map marker per each in the array.
-            }, obj.id * 250)
+              createMarkers(obj); // Create map marker per each in the array.
+            }, obj.id * 250);
             $('#sidebar').append(Location.html(obj)); //adding objects into sidebar.
-
-          })
-          //display no results
+          });
         }
-    })
-  }
-}
-Location.all = [];
-
+      });
+    }
+  };
+  Location.all = [];
   module.Location = Location;
   module.manageDB = manageDB;
 })(window);
-
 manageDB.createTable();
