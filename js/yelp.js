@@ -13,17 +13,7 @@
       success: function(data) {
         manageDB.deleteTable(function(){}); // Delete any previous data in database so we can fill it up again.
         if(JSON.parse(data).businesses) { //if data has results do below
-          localStorage.clear();
-          var averageLoc = {
-            lat: JSON.parse(data).region.center.latitude,
-            long: JSON.parse(data).region.center.longitude
-          };
-          localStorage.setItem('averageLoc', JSON.stringify(averageLoc));
-          console.log(JSON.parse(data));
-          var bus = JSON.parse(data).businesses; //variable bus now houses business objects.
-          $.each(bus, function(i){ // for every business in object. run this function
-            manageDB.populateDB(bus[i]); // Populate DB with each business obj
-          });
+          yelp.averageLocationHandler(data, yelp.handleData);
         }
       },
       error: function() {
@@ -31,5 +21,23 @@
       }
     }).done(callback);
   };
+
+  yelp.averageLocationHandler = function(data, cb) {
+    localStorage.clear();
+    var averageLoc = {
+      lat: JSON.parse(data).region.center.latitude,
+      long: JSON.parse(data).region.center.longitude
+    };
+    localStorage.setItem('averageLoc', JSON.stringify(averageLoc));
+    cb(data);
+  };
+
+  yelp.handleData = function(data) {
+    var bus = JSON.parse(data).businesses; //variable bus now houses business objects.
+    $.each(bus, function(i){ // for every business in object. run this function
+      manageDB.populateDB(bus[i]); // Populate DB with each business obj
+    });
+  };
+
   module.yelp = yelp;
 })(window);
