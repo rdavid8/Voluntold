@@ -1,3 +1,4 @@
+var back = false;
 
 page('/', landingPageController.index);
 

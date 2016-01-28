@@ -1,0 +1,81 @@
+.logopullout {
+  position: fixed;
+  background-color: rgba(228, 78, 156, 0.7);
+  height: 35px;
+  width: 35px;
+  bottom: 15px;
+  left: 22px;
+  z-index: 98;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+#logopulloutEnd{
+  width: 200px;
+  animation-duration: all 6s;
+  transition: all 2s;
+  opacity: 1;
+}
+
+.home {
+  font-family: 'Pragati Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  position: fixed;
+  z-index: 98;
+  color: white;
+  bottom: 15px;
+  left: 21px;
+  opacity: 0
+}
+
+.about {
+  font-family: 'Pragati Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  position: fixed;
+  z-index: 98;
+  color: white;
+  bottom: 15px;
+  left: 21px;
+  opacity: 0
+}
+
+#homeEnd{
+  bottom: 15px;
+  left: 100px;
+  animation-duration: all 6s;
+  transition: all 2s;
+  opacity: 1;
+}
+
+#aboutEnd{
+  bottom: 15px;
+  left: 175px;
+  animation-duration: all 6s;
+  transition: all 2s;
+  opacity: 1;
+}
+
+#logopulloutStart{
+  width: 35px;
+  animation-duration: all 6s;
+  transition: all 2s;
+  opacity: 0;
+}
+
+#homeStart{
+  bottom: 15px;
+  left: 21px;
+  animation-duration: all 6s;
+  transition: all 2s;
+  opacity: 0;
+}
+
+#aboutStart{
+  bottom: 15px;
+  left: 21px;
+  animation-duration: all 6s;
+  transition: all 2s;
+  opacity: 0;
+}

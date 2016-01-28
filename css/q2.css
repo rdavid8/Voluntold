@@ -75,7 +75,7 @@
 	z-index: 0;
 	padding: 0 0 0 2em;
 	width: 100%;
-	text-align: left;
+	text-align: center;
 }
 
 .input__label--kyo::after {

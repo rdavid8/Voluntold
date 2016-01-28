@@ -1,0 +1,48 @@
+@media only screen and (max-width: 1000px) {
+  #f1{
+    font-size: 200%;
+
+  }
+
+  #f2{
+    font-size: 100%;
+    margin-top: 140px;
+  }
+}
+
+@media only screen and (max-width: 680px){
+
+  #f2{
+    font-size: 100%;
+    margin-top: 80px;
+  }
+  #sidebar{
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    width: 100%;
+    height: 250px;
+    bottom: 100%;
+    padding: 0px;
+    z-index: 3;
+    animation-duration: 3s;
+    display: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+  }
+  article {
+    display: inline-block;
+    white-space: nowrap;
+    transform: scale(1);
+    vertical-align: top;
+    margin-top: 0%;
+    border: none;
+
+  }
+  article:hover {
+    transform: scale(1.1);
+    border: none;
+
+  }
+}
