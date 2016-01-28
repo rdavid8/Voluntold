@@ -184,7 +184,6 @@
       arrowSize: 10,
       minWidth: 50,
       maxWidth: 100,
-      minWidth: 50,
       maxHeight: 170,
       borderWidth: 1,
       borderColor: '#2c2c2c',
@@ -192,7 +191,8 @@
       hideCloseButton: true,
       arrowPosition: 30,
       backgroundClassName: 'transparent',
-      arrowStyle: 2
+      arrowStyle: 2,
+      overflow: false
     });
 
     marker.addListener('mouseover', function() {
