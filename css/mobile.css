@@ -27,19 +27,22 @@
     animation-duration: 3s;
     display: none;
     overflow-x: scroll;
+    overflow-y: hidden;
     white-space: nowrap;
 
   }
   article {
     display: inline-block;
     white-space: nowrap;
-    transform: scale(0.8);
+    transform: scale(1);
     vertical-align: top;
     margin-top: 0%;
+    border: none;
 
   }
   article:hover {
-    transform: scale(0.9);
+    transform: scale(1.1);
+    border: none;
 
   }
 }
