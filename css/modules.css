@@ -273,6 +273,10 @@ html, body {
   background-color: rgb(228,78,156);
 }
 
+#bioContainer img {
+  width: 75%;
+}
+
 #henry{
   background-color: rgb(228,78,156);
   transition: all 1s;
