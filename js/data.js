@@ -25,13 +25,15 @@
       ]
     );
   };
+
   manageDB.deleteTable = function(callback) {
     webDB.execute(
       'DELETE FROM yelpresults;',
       callback
     );
   };
-  manageDB.createTable = function(callback) {
+
+  manageDB.createTable = function() {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS yelpresults (' +
         'id INTEGER PRIMARY KEY, ' +
@@ -44,24 +46,26 @@
         'latitude FLOAT(255), ' +
         'longitude FLOAT(255), ' +
         'image_url VARCHAR(255), ' +
-        'url VARCHAR(255));',
-        callback
+        'url VARCHAR(255));'
     );
   };
-  manageDB.latRep = function(x){
-    if (x) {
-      return x.latitude;
+
+  manageDB.latRep = function(coordinate){
+    if (coordinate) {
+      return coordinate.latitude;
     } else {
       return undefined;
     }
   };
-  manageDB.longRep = function(x){
-    if (x) {
-      return x.longitude;
+
+  manageDB.longRep = function(coordinate){
+    if (coordinate) {
+      return coordinate.longitude;
     } else {
       return undefined;
     }
   };
+
   manageDB.populateDB = function(bus){
     var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url];
     var thisLoc = new Location(arr); //make an array of properties and pass it into object constructor for location.
@@ -70,12 +74,13 @@
 
   Location.grabLocs = function(rows){
     Location.all = rows; //Load up the rows
-    console.log(rows);
   };
+
   Location.html = function(obj) {
     var template = Handlebars.compile($('#result-template').text());
     return template(obj);
   };
+
   Location.prepResults = function(){ //callback once ajax is complete.
     var $aTag = $('<a></a>').attr('href', 'results'); //creating aTag. routing without using window location
     var $divTag = $('<div></div>').attr('id', 'clicker');
@@ -84,41 +89,66 @@
     $('#clicker').trigger('click');
     $aTag.remove();
   };
+
+  Location.handleResults = function(rows) {
+    Location.showMapArea();
+    Location.grabLocs(rows); //passing in rows from database
+    Location.initMap();
+    Location.displayLocs();
+  };
+
+  Location.handleNoResults = function() {
+    var $aTag = $('<a></a>').attr('href', 'noresults'); //creating another route to no results page
+    var $divTag = $('<div></div>').attr('id', 'errorclick');
+    $('body').prepend($aTag);
+    $aTag.append($divTag);
+    $('#errorclick').trigger('click');
+    $aTag.remove();
+  };
+
+  Location.showMapArea = function() {
+    $('#map').addClass('animated fadeIn').show();
+    $('#sidebar').addClass('animated fadeInRight').show();
+    $('#bg3').addClass('animated fadeOut');
+    $('#shade').addClass('animated fadeOut');
+    $('#landing').hide();
+  };
+
+  Location.initMap = function() {
+    var averageLoc = JSON.parse(localStorage.getItem('averageLoc'));
+    var center = {lat:  averageLoc.lat, lng: averageLoc.long}; //This will be passed to map.
+    initMap(center);
+  };
+
+  Location.displayLocs = function() {
+    $('#sidebar').empty();
+    $.map(Location.all, function(obj){ //
+      setTimeout(function(){
+        createMarkers(obj); // Create map marker per each in the array.
+      }, obj.id * 250);
+      $('#sidebar').append(Location.html(obj)); //adding objects into sidebar.
+    });
+  };
+
+  Location.popRes = function(){
+    webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
+      if(!rows.length){ //If there are not rows in the DB do the following:
+        Location.handleNoResults();
+      } else {
+        Location.handleResults(rows);
+      }
+    });
+  };
+
   Location.loadAll = function() {
     if(back){
       window.location = '/';
     } else {
       back = true;
-      webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
-        if(!rows.length){ //If there are not rows in the DB do the following:
-          var $aTag = $('<a></a>').attr('href', 'noresults'); //creating another route to no results page
-          var $divTag = $('<div></div>').attr('id', 'errorclick');
-          $('body').prepend($aTag);
-          $aTag.append($divTag);
-          $('#errorclick').trigger('click');
-          $aTag.remove();
-        } else {
-          $('#map').addClass('animated fadeIn').show();
-          $('#sidebar').addClass('animated fadeInRight').show();
-          $('#bg3').addClass('animated fadeOut');
-          $('#shade').addClass('animated fadeOut');
-          $('#landing').hide();
-
-          Location.grabLocs(rows); //passing in rows from database
-          var averageLoc = JSON.parse(localStorage.getItem('averageLoc'));
-          var center = {lat:  averageLoc.lat, lng: averageLoc.long}; //This will be passed to map.
-          initMap(center);
-          $('#sidebar').empty();
-          $.map(Location.all, function(obj){ //
-            setTimeout(function(){
-              createMarkers(obj); // Create map marker per each in the array.
-            }, obj.id * 250);
-            $('#sidebar').append(Location.html(obj)); //adding objects into sidebar.
-          });
-        }
-      });
+      Location.popRes();
     }
   };
+
   Location.all = [];
   module.Location = Location;
   module.manageDB = manageDB;
