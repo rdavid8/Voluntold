@@ -255,12 +255,13 @@ html, body {
   top: 0;
   border-style: solid;
   border-color: white;
-  border-width: 2;
+  border-width: 2px;
   background-color: rgb(228,78,156);
 }
 
 #bioContainer{
   position: absolute;
+  padding-top: 1%;
   margin: 5%;
   width: 10%;
   height: 80%;
@@ -277,20 +278,7 @@ html, body {
   width: 75%;
 }
 
-#henry{
-  background-color: rgb(228,78,156);
-  transition: all 1s;
-}
-
-#aj{
-  background-color: rgb(228,78,156);
-  transition: all 1s;
-}
-#ryan{
-  background-color: rgb(228,78,156);
-  transition: all 1s;
-}
-#brandon{
+#henry, #aj, #ryan, #brandon{
   background-color: rgb(228,78,156);
   transition: all 1s;
 }
