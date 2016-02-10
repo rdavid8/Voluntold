@@ -36,8 +36,9 @@
   yelp.handleData = function(data) {
     var bus = JSON.parse(data).businesses; //variable bus now houses business objects.
     $.each(bus, function(i){ // for every business in object. run this function
-      manageDB.populateDB(bus[i]); // Populate DB with each business obj pass in empty array, once done obj array will be filled.
+      manageDB.populateDB(bus[i]); // Populate DB with each business obj to be stored in yelp.all, once done obj array will be filled.
     });
+    localStorage.setItem('yelpInfo', JSON.stringify(yelp.all)); // put the array into local storage.
   };
 
   module.yelp = yelp;
