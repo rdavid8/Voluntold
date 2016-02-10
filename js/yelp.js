@@ -13,7 +13,6 @@
       },
       success: function(data) {
         localStorage.clear(); // Clear out all old local storage data
-        manageDB.deleteTable(function(){}); // Delete any previous data in database so we can fill it up again.
         if(JSON.parse(data).businesses) { //if data has results do below
           yelp.averageLocationHandler(data, yelp.handleData);
         }
