@@ -14,7 +14,6 @@
     this.image_url = arr[8] || 'img/marker100.png',
     this.url = arr[9] || '';
   }
-
   Location.prototype.insertSelf = function() {
     webDB.execute(
       [
@@ -66,10 +65,11 @@
     }
   };
 
-  manageDB.populateDB = function(bus){
+  manageDB.populateDB = function(bus, all){
     var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url];
     var thisLoc = new Location(arr); //make an array of properties and pass it into object constructor for location.
     thisLoc.insertSelf(); //Insert self into SQL
+    yelp.all.push(thisLoc); //push the obj into the all array
   };
 
   Location.grabLocs = function(rows){
