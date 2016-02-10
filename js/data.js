@@ -104,13 +104,6 @@
     } else {
       Location.handleResults();
     }
-    // webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
-    //   if(!rows.length){ //If there are not rows in the DB do the following:
-    //     Location.handleNoResults();
-    //   } else {
-    //     Location.handleResults(rows);
-    //   }
-    // });
   };
 
   Location.loadAll = function() {
@@ -126,4 +119,3 @@
   module.Location = Location;
   module.manageDB = manageDB;
 })(window);
-manageDB.createTable();
