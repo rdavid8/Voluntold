@@ -72,8 +72,8 @@
     yelp.all.push(thisLoc); //push the obj into the all array
   };
 
-  Location.grabLocs = function(rows){
-    Location.all = rows; //Load up the rows
+  Location.grabLocs = function(){
+    Location.all = JSON.parse(localStorage.getItem('yelpInfo')); //Load up the locs from LS
   };
 
   Location.html = function(obj) {
@@ -92,7 +92,7 @@
 
   Location.handleResults = function(rows) {
     Location.showMapArea();
-    Location.grabLocs(rows); //passing in rows from database
+    Location.grabLocs(); //handles from ls
     Location.initMap();
     Location.displayLocs();
   };
@@ -131,13 +131,18 @@
   };
 
   Location.popRes = function(){
-    webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
-      if(!rows.length){ //If there are not rows in the DB do the following:
-        Location.handleNoResults();
-      } else {
-        Location.handleResults(rows);
-      }
-    });
+    if(!localStorage.getItem('yelpInfo')){
+      Location.handleNoResults();
+    } else {
+      Location.handleResults();
+    }
+    // webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
+    //   if(!rows.length){ //If there are not rows in the DB do the following:
+    //     Location.handleNoResults();
+    //   } else {
+    //     Location.handleResults(rows);
+    //   }
+    // });
   };
 
   Location.loadAll = function() {
