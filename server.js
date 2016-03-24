@@ -11,14 +11,14 @@ var requestProxy = require('express-request-proxy'),
 var proxyYelp = function(request, response) {
   console.log('Incoming request');
   var respond = function(data) {
-    response.send(data)
+    response.send(data);
     console.log('Request Served');
-  }
+  };
   request_yelp(request.query, respond);
-}
+};
 var request_yelp = function(set_parameters, callback) {
   var httpMethod = 'GET';
-  var url = 'http://api.yelp.com/v2/search'
+  var url = 'http://api.yelp.com/v2/search';
   var default_parameters = {
   };
   var required_parameters = {
