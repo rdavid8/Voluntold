@@ -14,40 +14,8 @@
     this.image_url = arr[8] || 'img/marker100.png',
     this.url = arr[9] || '';
   }
-
   Location.prototype.insertSelf = function() {
-    webDB.execute(
-      [
-        {
-          'sql': 'INSERT INTO yelpresults (name, display_phone, address, city, postal_code, state_code, latitude, longitude, image_url, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
-          'data': [this.name, this.display_phone, this.address, this.city, this.postal_code, this.state_code, this.latitude, this.longitude, this.image_url, this.url],
-        }
-      ]
-    );
-  };
-
-  manageDB.deleteTable = function(callback) {
-    webDB.execute(
-      'DELETE FROM yelpresults;',
-      callback
-    );
-  };
-
-  manageDB.createTable = function() {
-    webDB.execute(
-      'CREATE TABLE IF NOT EXISTS yelpresults (' +
-        'id INTEGER PRIMARY KEY, ' +
-        'name VARCHAR(255) NOT NULL, ' +
-        'display_phone VARCHAR(255) NOT NULL, ' +
-        'address VARCHAR (255), ' +
-        'city VARCHAR(30), ' +
-        'postal_code VARCHAR(15), ' +
-        'state_code VARCHAR(2), ' +
-        'latitude FLOAT(255), ' +
-        'longitude FLOAT(255), ' +
-        'image_url VARCHAR(255), ' +
-        'url VARCHAR(255));'
-    );
+    yelp.all.push(this);
   };
 
   manageDB.latRep = function(coordinate){
@@ -69,11 +37,11 @@
   manageDB.populateDB = function(bus){
     var arr=[bus.name, bus.display_phone, bus.location.address[0], bus.location.city, bus.location.postal_code, bus.location.state_code, manageDB.latRep(bus.location.coordinate), manageDB.longRep(bus.location.coordinate), bus.image_url, bus.url];
     var thisLoc = new Location(arr); //make an array of properties and pass it into object constructor for location.
-    thisLoc.insertSelf(); //Insert self into SQL
+    thisLoc.insertSelf(); //Insert self into LS
   };
 
-  Location.grabLocs = function(rows){
-    Location.all = rows; //Load up the rows
+  Location.grabLocs = function(){
+    Location.all = JSON.parse(localStorage.getItem('yelpInfo')); //Load up the locs from LS
   };
 
   Location.html = function(obj) {
@@ -92,7 +60,7 @@
 
   Location.handleResults = function(rows) {
     Location.showMapArea();
-    Location.grabLocs(rows); //passing in rows from database
+    Location.grabLocs(); //handles from ls
     Location.initMap();
     Location.displayLocs();
   };
@@ -131,13 +99,11 @@
   };
 
   Location.popRes = function(){
-    webDB.execute('SELECT * FROM yelpresults', function(rows){ //Select everything in SQL database
-      if(!rows.length){ //If there are not rows in the DB do the following:
-        Location.handleNoResults();
-      } else {
-        Location.handleResults(rows);
-      }
-    });
+    if(!localStorage.getItem('yelpInfo')){
+      Location.handleNoResults();
+    } else {
+      Location.handleResults();
+    }
   };
 
   Location.loadAll = function() {
@@ -153,4 +119,3 @@
   module.Location = Location;
   module.manageDB = manageDB;
 })(window);
-manageDB.createTable();

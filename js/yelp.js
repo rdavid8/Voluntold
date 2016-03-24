@@ -1,6 +1,7 @@
 (function(module) {
   // creating yelp object
   var yelp = {};
+  yelp.all = [];
 
   yelp.ajaxCall = function (callback) {
     $.ajax('yelp/v2/search/', {
@@ -11,7 +12,7 @@
         limit: 10
       },
       success: function(data) {
-        manageDB.deleteTable(function(){}); // Delete any previous data in database so we can fill it up again.
+        localStorage.clear(); // Clear out all old local storage data
         if(JSON.parse(data).businesses) { //if data has results do below
           yelp.averageLocationHandler(data, yelp.handleData);
         }
@@ -23,7 +24,6 @@
   };
 
   yelp.averageLocationHandler = function(data, cb) {
-    localStorage.clear();
     var averageLoc = {
       lat: JSON.parse(data).region.center.latitude,
       long: JSON.parse(data).region.center.longitude
@@ -35,8 +35,9 @@
   yelp.handleData = function(data) {
     var bus = JSON.parse(data).businesses; //variable bus now houses business objects.
     $.each(bus, function(i){ // for every business in object. run this function
-      manageDB.populateDB(bus[i]); // Populate DB with each business obj
+      manageDB.populateDB(bus[i]); // Populate DB with each business obj to be stored in yelp.all, once done obj array will be filled.
     });
+    localStorage.setItem('yelpInfo', JSON.stringify(yelp.all)); // put the array into local storage.
   };
 
   module.yelp = yelp;

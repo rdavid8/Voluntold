@@ -11,7 +11,6 @@ Technology used in this project:
 * yelp api
 * node.js
 * handlebar.js
-* webDB.js
 * animate.css
 
 Voluntold Team:
