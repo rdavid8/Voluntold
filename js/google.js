@@ -1,7 +1,6 @@
 
   var googleObj = {};
   var map;
-
   var styleArray = [
     {
       'featureType': 'all',
@@ -167,9 +166,9 @@
     function toggleBounce() {
       if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
-      } else {
       }
     }
+
     var infoBubble = new InfoBubble({
       map: map,
       content: contentString,
@@ -204,5 +203,4 @@
       infoBubble.close();
       marker.setAnimation(null);
     });
-
   };

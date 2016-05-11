@@ -13,7 +13,6 @@
   };
 
   questionsController.showQ1 = function(){
-    $('#shade').addClass('blue');
     $('#f1').addClass('animated fadeOutRightBig');
     $('#f2').addClass('animated fadeOutLeftBig');
     $('#bg').addClass('animated fadeOut');
@@ -25,7 +24,6 @@
   questionsController.showQ2 = function(){
     $('form').on('click', 'li.cs-selected span', function(){
       questionsController.term = $('#term').val(); //grabbing from the drop down selection
-      $('#shade').addClass('purp');
       $('#q1').addClass('animated fadeOutUp');
       $('#q2').addClass('animated fadeInUp').show();
       $('#bg2').addClass('animated fadeOut');
@@ -38,13 +36,11 @@
     $('#submit2').on('click', function(e){
       e.preventDefault();
       questionsController.location = $('#location').val(); //grabbing location from input box
-      console.log(questionsController.location);
       yelp.ajaxCall(Location.prepResults); //This will be our new function call to trigger page.js
       $('#questions').addClass('animated fadeOut');
       $('#map').addClass('animated fadeIn').show();
       $('#sidebar').addClass('animated fadeInRight').show();
       $('#bg3').addClass('animated fadeOut');
-      $('#shade').addClass('animated fadeOut');
     });
   };
 
