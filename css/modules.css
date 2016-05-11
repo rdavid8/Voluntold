@@ -28,7 +28,7 @@ html, body {
 
 #map {
   height: 100%;
-  animation-duration: 8s;
+  animation-duration: 4s;
   display: none;
 }
 
@@ -45,11 +45,12 @@ html, body {
   left: 0;
   animation-duration: 4s;
 }
-#bg2, #bg3, #bg4{
+#bg, #bg2, #bg3, #bg4{
   display: none;
 }
 
 #shade{
+  display: none;
   z-index: 0;
   min-height: 100%;
   min-width: 1024px;
@@ -59,9 +60,9 @@ html, body {
   top: 0;
   left: 0;
   background-color: rgba(22,22,22,0.8);
-  animation-duration: 6s;
+  animation-duration: 1s;
   transition-property: background-color;
-  transition-duration: 3s;
+  transition-duration: 1s;
   transition-timing-function: linear;
 }
 #shade.blue{
@@ -95,6 +96,11 @@ html, body {
 #form{
   display: none;
 }
+
+#f1, #f2{
+    display: none;
+}
+
 #f1{
   font-family: 'Pragati Narrow', sans-serif;
   font-size: 86px;
@@ -107,7 +113,6 @@ html, body {
   z-index: 1;
   position: fixed;
   animation-duration: 2s;
-  /*white-space: nowrap;*/
 }
 
 #f2{
@@ -120,8 +125,7 @@ html, body {
   margin-left: 10%;
   z-index: 1;
   position: fixed;
-  animation-duration: 3s;
-  /*white-space: nowrap;*/
+  animation-duration: 2s;
 
 }
 
@@ -307,4 +311,7 @@ iframe{
   height: 100%;
   frameborder: 0;
   allowfullscreen: true;
+}
+#wrapper{
+    height: 100%;
 }

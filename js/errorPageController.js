@@ -13,7 +13,6 @@
     $('#e2').addClass('animated fadeInDownBig').show();
     $('#bg3').addClass('animated fadeOut');
     $('#bg4').addClass('animated fadeIn').show();
-    $('#shade2').addClass('animated fadeIn').show();
   };
   errorPageController.hide = function(){
     $('#landing').hide();

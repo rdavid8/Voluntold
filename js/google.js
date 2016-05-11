@@ -1,7 +1,7 @@
 
   var googleObj = {};
   var map;
-
+  var bounds;
   var styleArray = [
     {
       'featureType': 'all',
@@ -149,6 +149,10 @@
     });
   };
 
+  // var widenView = function(){
+  //   map.fitBounds(bounds);
+  // };
+
   var createMarkers = function(obj) {
     var markerImg = 'img/marker.png';
     var marker = new google.maps.Marker({
@@ -156,8 +160,10 @@
       map: map,
       title: obj.name,
       icon: markerImg,
+    //   bounds = new google.maps.LatLngBounds();
       animation: google.maps.Animation.DROP,
     });
+    bounds.extend(marker.position);
 
     var contentString = '<div id="content">'+
       '<h3 id="markerName" class="firstHeading">' + obj.name + '</h3>' +

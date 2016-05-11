@@ -96,6 +96,7 @@
       }, obj.id * 250);
       $('#sidebar').append(Location.html(obj)); //adding objects into sidebar.
     });
+    widenView();
   };
 
   Location.popRes = function(){
@@ -111,6 +112,7 @@
       window.location = '/';
     } else {
       back = true;
+      $('#wrapper').fadeOut();
       Location.popRes();
     }
   };
