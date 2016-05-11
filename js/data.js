@@ -61,8 +61,8 @@
   Location.handleResults = function(rows) {
     Location.showMapArea();
     Location.grabLocs(); //handles from ls
-    Location.initMap();
-    Location.displayLocs();
+    var bounds = Location.initMap();
+    Location.displayLocs(bounds);
   };
 
   Location.handleNoResults = function() {
@@ -96,7 +96,6 @@
       }, obj.id * 250);
       $('#sidebar').append(Location.html(obj)); //adding objects into sidebar.
     });
-    widenView();
   };
 
   Location.popRes = function(){
