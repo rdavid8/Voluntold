@@ -157,11 +157,11 @@
       icon: markerImg,
       animation: google.maps.Animation.DROP,
     });
-
+    console.log(obj);
     var contentString = '<div id="content">'+
       '<h3 id="markerName" class="firstHeading">' + obj.name + '</h3>' +
       '<div id="imgArea">'+ '<img src=' + obj.image_url + '>' +'</div>'+
-      '</div>';
+      '<h3>' + obj.address + '</h3>' + '<h4>' + obj.display_phone + '</h4>' + '</div>';
 
     function toggleBounce() {
       if (marker.getAnimation() !== null) {
@@ -183,7 +183,7 @@
       arrowSize: 10,
       minWidth: 50,
       maxWidth: 150,
-      // maxHeight: 170,
+      maxHeight: 225,
       borderWidth: 1,
       borderColor: '#2c2c2c',
       disableAutoPan: true,
@@ -196,7 +196,6 @@
 
     marker.addListener('mouseover', function() {
       infoBubble.open(map, this);
-      // marker.setAnimation(google.maps.Animation.BOUNCE);
     });
 
     marker.addListener('mouseout', function() {
