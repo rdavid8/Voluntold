@@ -1,7 +1,9 @@
  /*Google Maps Marker Info Window Style */
 div#content {
-  margin: auto;
-  padding: 1%;
+  height: auto;
+  font-weight:bold;
+  font-color: white;
+  text-align: center;
 }
 
 #markerName {

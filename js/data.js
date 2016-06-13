@@ -61,8 +61,8 @@
   Location.handleResults = function(rows) {
     Location.showMapArea();
     Location.grabLocs(); //handles from ls
-    Location.initMap();
-    Location.displayLocs();
+    var bounds = Location.initMap();
+    Location.displayLocs(bounds);
   };
 
   Location.handleNoResults = function() {
@@ -111,6 +111,7 @@
       window.location = '/';
     } else {
       back = true;
+      $('#wrapper').fadeOut();
       Location.popRes();
     }
   };
