@@ -42,7 +42,7 @@
       paddingLeft: 15,
       paddingRight: 15,
       marginTop: 0,
-      backgroundColor: 'rgba(228, 78, 156, 0.7)',
+      backgroundColor: 'rgba(255, 255, 255, 0.9)',
       borderRadius: 0,
       arrowSize: 10,
       minWidth: 50,

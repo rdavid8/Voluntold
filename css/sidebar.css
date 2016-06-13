@@ -30,7 +30,6 @@ article {
   z-index: 4;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-color: rgb(228,78,156);
   border-width: thin;
   border-style: solid;
 }
@@ -38,7 +37,6 @@ article {
 
 article:hover {
   color: rgb(225,225,225);
-  transform: scale(1.08);
   transition: all 1s;
   opacity: 1;
   background-color: rgb(228,78,156);
